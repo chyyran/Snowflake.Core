@@ -9,7 +9,6 @@ class GeneralUtils():
         """
         print "[Snowflake.Core] " + str(string)
 
-
     def parse_command(self, filestream, command):
         if command == "TestCommand":
             self.write_to_stream(filestream,"Received Test Command\0")
