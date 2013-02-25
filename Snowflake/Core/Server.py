@@ -1,6 +1,11 @@
+__author__ = 'ron975'
+"""
+This file is part of Snowflake.Core
+"""
+
 from gevent import socket
 from gevent.server import StreamServer
-from Snowflake.Core.Utils import GeneralUtils as util
+from Snowflake.Core.Utils.GeneralUtils import GeneralUtils as util
 
 
 class SnowflakeServer():

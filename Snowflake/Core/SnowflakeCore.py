@@ -1,10 +1,14 @@
+__author__ = 'ron975'
+"""
+This file is part of Snowflake.Core
+"""
+
 from gevent import socket
 from gevent.server import StreamServer
-from Snowflake.Core.Utils import GeneralUtils as gutils
+
 from Snowflake.Core.Datastructures.Console import Console
-from Snowflake.Core.Datastructures.Game import Game
-import json
-import array
+from Snowflake.Core.Utils.GeneralUtils import GeneralUtils as gutils
+
 
 def handle_echo(sock, address):
     fp = sock.makefile()
@@ -24,13 +28,13 @@ def handle_echo(sock, address):
 
 
 def main():
-    #c = Console("Super Nintendo Entertainment System", "/assets/SNES.png", "SNES")
-    #c2 = Console("Nintendo Entertainment System", "/assets/NES.png", "NES")
+    c = Console("Super Nintendo Entertainment System", "/assets/SNES.png", "SNES")
+    c2 = Console("Nintendo Entertainment System", "/assets/NES.png", "NES")
     #g = Game("Mario Bros", "Platformer", 1990, "/assets/SNES/Mario.png","/roms/Mario.smc","Nintendo","SNES")
-    #a = [c.__dict__,c2.__dict__]
+    #a = []
+    #gutils.add_to_list(a, c, c2)
     #print json.dumps(a)
-    #print json.dumps(c.__dict__)
-    #print json.dumps(g.__dict__)
+
     gutils.server_log("Snowflake Core Started")
     server = StreamServer(('', 6993), handle_echo)
     server.serve_forever()

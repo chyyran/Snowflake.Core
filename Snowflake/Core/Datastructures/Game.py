@@ -1,3 +1,8 @@
+__author__ = 'ron975'
+"""
+This file is part of Snowflake.Core
+"""
+
 class Game():
     def __init__(self, game_name, description, release_year, cover_path, rom_path, publisher, console_name):
         self.game_name = game_name
