@@ -12,4 +12,4 @@ class Console():
         self.short_name = short_name
 
     def __repr__(self):
-        return self.short_name
+        return self.console_name

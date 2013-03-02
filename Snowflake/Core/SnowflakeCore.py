@@ -11,6 +11,9 @@ from Snowflake.Core.Utils.GeneralUtils import GeneralUtils as gutils
 from Snowflake.Core.Datastructures.Command import Command
 
 import json
+
+from Snowflake.Core.Scrapers.Angelscry.AngelscryScraperUtils import AngelscryScraperUtils as angelscrape
+from Scrapers.Angelscry.AngelscryScraperUtils import GameSysColumns as syscl
 import datetime
 import time
 from time import gmtime
@@ -51,8 +54,10 @@ def main():
     for param in cm.params:
         print param
     gutils.server_log("Snowflake Core Started at "+gutils.get_datestring())
+    print angelscrape.system_conversion("Super Nintendo Entertainment System", syscl.GAME_FAQS, syscl.SYSTEM_NAME)
     server = StreamServer(('', 6993), handle_echo)
     server.serve_forever()
+
 
 
 if __name__ == '__main__':
