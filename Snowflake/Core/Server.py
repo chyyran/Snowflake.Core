@@ -4,29 +4,23 @@ This file is part of Snowflake.Core
 """
 
 from gevent import socket
-from gevent.server import StreamServer
-from Snowflake.Core.Utils.GeneralUtils import GeneralUtils as util
+from snowflakeutils import GeneralUtils as gutils
 
 
-class SnowflakeServer():
-    def serverDispatch(self, sock, address):
-        fp = sock.makefile()
+def handle_echo(sock, address):
+    fp = sock.makefile()
+    while True:
 
-        while True:
-            line = fp.readline()
-            if line:
-                util.serverlog(line)
-                util.parseCommand(fp, "Hello")
-                #fp.write("Received Handshake")
-                #fp.flush()
-            else:
-                break
-        sock.shutdown(socket.SHUT_WR)
-        sock.close()
+        line = fp.readline().strip()
+        if line:
+            print "Received Command ", line
+            gutils.parse_command(fp, line)
+            gutils.write_to_stream(fp, "Command ReceivedXX")
+            gutils.write_to_stream(fp, "Command ReceivedXY")
 
-    def startServer(self,port):
-        util.serverlog("Server started")
-        server = StreamServer(('', int(port)), self.serverDispatch)
-        server.serve_forever()
+        else:
+            break
+    sock.shutdown(socket.SHUT_WR)
+    sock.close()
 
 
