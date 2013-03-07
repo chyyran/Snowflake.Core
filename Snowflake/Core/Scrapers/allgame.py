@@ -5,8 +5,17 @@ This file is part of Snowflake.Core
 import urllib
 import re
 
+__scrapername__ = "AllGame"
+__scraperauthor__ = ["Angelscry", "ron975"]
+__scrapersite__ = "www.allgame.com"
+__scraperdesc__ = "Scrapes ROM information from AllGame.com"
+
 
 def get_games_list(search):
+    """
+    Gets a list of games returned by search.
+    :param search: String to search.
+    """
     params = urllib.urlencode({'sql': search, 'opt1': 81})
     results = []
     display = []
