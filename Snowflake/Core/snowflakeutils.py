@@ -5,6 +5,10 @@ This file is part of Snowflake.Core
 from time import strftime, timezone
 import sqlite3
 import difflib
+import os
+import imp
+
+from scrapers import snowflakescraper as scraperbase
 
 
 class CommandUtils:
@@ -12,8 +16,8 @@ class CommandUtils:
     params
     """
 
-    @classmethod
-    def get_consoles(cls):
+    @staticmethod
+    def get_consoles():
         """
         Gets a list of consoles.
         Corresponding JSONAPI command is
@@ -25,8 +29,8 @@ class CommandUtils:
         """
         return None
 
-    @classmethod
-    def get_games(cls, console):
+    @staticmethod
+    def get_games(console):
         """
 
 
@@ -37,8 +41,8 @@ class CommandUtils:
 
 
 class GeneralUtils:
-    @classmethod
-    def server_log(cls, string):
+    @staticmethod
+    def server_log(string):
         """
         Logs string to stdout
         :rtype : object
@@ -46,34 +50,36 @@ class GeneralUtils:
         """
         print "[Snowflake.Core] " + str(string)
 
-    def parse_command(self, file_stream, command):
+    @staticmethod
+    def parse_command(file_stream, command):
         if command == "TestCommand":
-            self.write_to_stream(file_stream, "Received Test Command\0")
+            GeneralUtils.write_to_stream(file_stream, "Received Test Command\0")
             return "Received Test Command\0"
 
         return "Invalid Command"
 
+    @staticmethod
     def write_to_stream(self, file_stream, string):
         file_stream.write(string)
         file_stream.flush()
 
-    @classmethod
-    def add_to_list(cls, list, *data):
+    @staticmethod
+    def add_to_list(list, *data):
         for datum in data:
             list.append(datum.__dict__)
 
-    @classmethod
-    def get_datestring(cls):
+    @staticmethod
+    def get_datestring():
         """
 
 
         :return:
         """
-        return strftime("%m.%d.%Y %H:%M:%S (UTC ") + cls.get_formatted_timezone_offset(timezone) + ")"
+        return strftime("%m.%d.%Y %H:%M:%S (UTC ") + GeneralUtils.get_formatted_timezone_offset(timezone) + ")"
 
 
-    @classmethod
-    def get_formatted_timezone_offset(cls, timezone):
+    @staticmethod
+    def get_formatted_timezone_offset(timezone):
         """
         Formats the timezone offset provided by time.timezone into standard UTC timezone strings
         :param timezone:
@@ -98,8 +104,22 @@ class ScraperUtils:
         SYSTEM_NAME = "SystemName"
         SHORT_NAME = "ShortName"
 
-    @classmethod
-    def json_to_sqlite(cls):
+    @staticmethod
+    def get_scrapers_directory():
+        return os.path.dirname(os.path.realpath(scraperbase.__file__))
+
+    @staticmethod
+    def get_scraper(scrapername):
+        scraper = imp.load_source('snowflake.{0}'.format(scrapername),
+                                  os.path.join(ScraperUtils.get_scrapers_directory(), scrapername.lower() + ".py"))
+
+        if scraper.__scrapername__.lower() != scrapername.lower():
+            return scraperbase
+        else:
+            return scraper
+
+    @staticmethod
+    def json_to_sqlite():
         import json
 
         """
@@ -126,8 +146,8 @@ class ScraperUtils:
         except sqlite3.Error, e:
             print "Failed to insert JSON into Database" + e.args[0]
 
-    @classmethod
-    def system_conversion(cls, system_id, scraper_site, search_column):
+    @staticmethod
+    def system_conversion(system_id, scraper_site, search_column):
         """
         Replaces _system_conversion in Angelscry's unmodified scrapers.
         Uses a SQLite3 database rather than the default CSV for speed and constancy
@@ -145,8 +165,8 @@ class ScraperUtils:
         except TypeError:
             return ''
 
-    @classmethod
-    def get_best_match(cls, game_list, game_name):
+    @staticmethod
+    def get_best_match(game_list, game_name):
         best_match = {}
         best_ratio = 0
         for game in game_list:
@@ -156,7 +176,7 @@ class ScraperUtils:
 
         return best_match
 
-    @classmethod
-    def get_match_by_threshold(cls, game_dict, game_name, match_threshold):
+    @staticmethod
+    def get_match_by_threshold(game_dict, game_name, match_threshold):
 
         return

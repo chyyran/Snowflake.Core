@@ -14,6 +14,7 @@ def handle_echo(sock, address):
         line = fp.readline().strip()
         if line:
             print "Received Command ", line
+
             gutils.parse_command(fp, line)
             gutils.write_to_stream(fp, "Command ReceivedXX")
             gutils.write_to_stream(fp, "Command ReceivedXY")
