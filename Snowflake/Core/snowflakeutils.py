@@ -1,3 +1,4 @@
+#coding=utf-8
 __author__ = 'ron975'
 """
 This file is part of Snowflake.Core
@@ -7,8 +8,13 @@ import sqlite3
 import difflib
 import os
 import imp
+import urllib
+import mimetypes
+import json
 
+import Snowflake
 from scrapers import snowflakescraper as scraperbase
+from datastructures import Game
 
 
 class CommandUtils:
@@ -42,6 +48,35 @@ class CommandUtils:
 
 class GeneralUtils:
     @staticmethod
+    def get_core_directory():
+        return os.path.dirname(Snowflake.Core.__file__)
+
+    @staticmethod
+    def download_file(url, directory, filename, extension=None):
+        GeneralUtils.check_directory(directory)
+        if extension is None:
+            extension = GeneralUtils.get_extension_from_url(url)
+        path = os.path.join(directory, filename) + str(extension)
+        try:
+            urllib.urlretrieve(url, path)
+            return path
+        except:
+            return path
+
+    @staticmethod
+    def check_directory(path):
+        try:
+            os.makedirs(path)
+        except OSError:
+            if not os.path.isdir(path):
+                raise
+
+    @staticmethod
+    def get_extension_from_url(url):
+        extension = mimetypes.guess_extension(mimetypes.guess_type(url)[0])
+        return extension
+
+    @staticmethod
     def server_log(string):
         """
         Logs string to stdout
@@ -71,8 +106,6 @@ class GeneralUtils:
     @staticmethod
     def get_datestring():
         """
-
-
         :return:
         """
         return strftime("%m.%d.%Y %H:%M:%S (UTC ") + GeneralUtils.get_formatted_timezone_offset(timezone) + ")"
@@ -105,6 +138,12 @@ class ScraperUtils:
         SHORT_NAME = "ShortName"
 
     @staticmethod
+    def scrape_game(game_name, system):
+        """Builds a Game Object"""
+
+        return Game()
+
+    @staticmethod
     def get_scrapers_directory():
         return os.path.dirname(os.path.realpath(scraperbase.__file__))
 
@@ -120,14 +159,12 @@ class ScraperUtils:
 
     @staticmethod
     def json_to_sqlite():
-        import json
-
         """
         Converts the json to an sqlite database.
         Only present in code for demonstration. Do not invoke this method.
         JSON was produced from the original CSV by use of a header line deduced by hand and an online converter
         """
-        jsonfile = open("assets/gamesys.json")
+        jsonfile = open(os.path.join(GeneralUtils.get_core_directory(), "assets", "gamesys.json"))
         data = json.load(jsonfile)
         con = None
         try:
@@ -147,7 +184,7 @@ class ScraperUtils:
             print "Failed to insert JSON into Database" + e.args[0]
 
     @staticmethod
-    def system_conversion(system_id, scraper_site, search_column):
+    def system_conversion(system_id, scraper_site, search_column=GameSysColumns.SYSTEM_NAME):
         """
         Replaces _system_conversion in Angelscry's unmodified scrapers.
         Uses a SQLite3 database rather than the default CSV for speed and constancy
@@ -156,7 +193,8 @@ class ScraperUtils:
         :param search_column: Column to search for. Currently, only GameSysColumn.SYSTEM_NAME, works.
         :rtype : str
         """
-        con = sqlite3.connect('assets/gamesys.db')
+        dbpath = os.path.join(GeneralUtils.get_core_directory(), "assets", "gamesys.db")
+        con = sqlite3.connect(dbpath)
         cur = con.cursor()
         cur.execute("SELECT {0} FROM gamesys WHERE {1} = '{2}'".format(scraper_site, search_column, system_id))
         data = cur.fetchone()
@@ -180,3 +218,24 @@ class ScraperUtils:
     def get_match_by_threshold(game_dict, game_name, match_threshold):
 
         return
+
+    @staticmethod
+    def remove_html_codes(s):
+        """
+        :author: Angelscry
+        Replaces HTML character codes into their proper characters
+        :return:
+        """
+        s = s.replace('<br />', ' ')
+        s = s.replace("&lt;", "<")
+        s = s.replace("&gt;", ">")
+        s = s.replace("&amp;", "&")
+        s = s.replace("&#039;", "'")
+        s = s.replace('<br />', ' ')
+        s = s.replace('&quot;', '"')
+        s = s.replace('&nbsp;', ' ')
+        s = s.replace('&#x26;', '&')
+        s = s.replace('&#x27;', "'")
+        s = s.replace('&#xB0;', "°")
+        return s
+
