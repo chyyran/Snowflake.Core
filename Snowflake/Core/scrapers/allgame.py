@@ -7,10 +7,12 @@ import urllib
 import re
 from Snowflake.Core.snowflakeutils import ScraperUtils as sutils
 
+
 __scrapername__ = "AllGame"
 __scraperauthor__ = ["Angelscry", "ron975"]
 __scrapersite__ = "www.allgame.com"
 __scraperdesc__ = "Scrapes ROM information from AllGame"
+__scraperfanarts__ = False
 
 
 def get_games_by_name(search):

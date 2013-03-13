@@ -13,6 +13,7 @@ __scrapername__ = "TheGamesDB"
 __scraperauthor__ = ["Angelscry", "ron975"]
 __scrapersite__ = "thegamesdb.net"
 __scraperdesc__ = "Scrapes ROM information from TheGamesDB.net API"
+__scraperfanarts__ = True
 
 
 def get_games_by_name(search):

@@ -8,6 +8,7 @@ __scrapername__ = "SnowflakeScraper"
 __scraperauthor__ = ["ron975"]
 __scrapersite__ = "N/A"
 __scraperdesc__ = "The interface in which all scrapers should be based upon."
+__scraperfanarts__ = True
 
 
 def get_games_by_name(search):

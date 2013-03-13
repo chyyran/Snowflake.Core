@@ -18,10 +18,6 @@ from datastructures import Game
 
 
 class CommandUtils:
-    """
-    params
-    """
-
     @staticmethod
     def get_consoles():
         """
