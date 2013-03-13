@@ -8,6 +8,7 @@ import urllib
 import re
 from Snowflake.Core.snowflakeutils import ScraperUtils as sutils
 
+
 __scrapername__ = "TheGamesDB"
 __scraperauthor__ = ["Angelscry", "ron975"]
 __scrapersite__ = "thegamesdb.net"
@@ -17,7 +18,6 @@ __scraperdesc__ = "Scrapes ROM information from TheGamesDB.net API"
 def get_games_by_name(search):
     params = urllib.urlencode({"name": search})
     results = []
-    display = []
     try:
         f = urllib.urlopen("http://thegamesdb.net/api/GetGamesList.php", params)
         page = f.read().replace("\n", "")
@@ -29,9 +29,9 @@ def get_games_by_name(search):
             game["title"] = item[1]
             game["system"] = item[3]
             game["order"] = 1
-            if ( game["title"].lower() == search.lower() ):
+            if game["title"].lower() == search.lower():
                 game["order"] += 1
-            if ( game["title"].lower().find(search.lower()) != -1 ):
+            if game["title"].lower().find(search.lower()) != -1:
                 game["order"] += 1
             results.append(game)
         results.sort(key=lambda result: result["order"], reverse=True)
@@ -47,7 +47,7 @@ def get_games_with_system(search, system):
     try:
         f = urllib.urlopen("http://thegamesdb.net/api/GetGamesList.php", params)
         page = f.read().replace("\n", "")
-        if (platform == "Sega Genesis" ):
+        if platform == "Sega Genesis":
             params = urllib.urlencode({"name": search, "platform": "Sega Mega Drive"})
             f2 = urllib.urlopen("http://thegamesdb.net/api/GetGamesList.php", params)
             page = page + f2.read().replace("\n", "")
@@ -57,13 +57,15 @@ def get_games_with_system(search, system):
             game = {}
             game["id"] = item[0]
             game["title"] = item[1]
-            game["system"] = item[3]
+            game["system"] = system
             game["order"] = 1
-            if ( game["title"].lower() == search.lower() ):
+            if game["title"].lower() == search.lower():
                 game["order"] += 1
-            if ( game["title"].lower().find(search.lower()) != -1 ):
+            if game["title"].lower().find(search.lower()) != -1:
                 game["order"] += 1
-            results.append(game)
+            if sutils.system_conversion(item[3], sutils.GameSysColumns.SYSTEM_NAME,
+                                        sutils.GameSysColumns.THE_GAMES_DB).lower() == system.lower():
+                results.append(game)
         results.sort(key=lambda result: result["order"], reverse=True)
         return results
     except:

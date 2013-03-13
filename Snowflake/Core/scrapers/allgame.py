@@ -10,7 +10,7 @@ from Snowflake.Core.snowflakeutils import ScraperUtils as sutils
 __scrapername__ = "AllGame"
 __scraperauthor__ = ["Angelscry", "ron975"]
 __scrapersite__ = "www.allgame.com"
-__scraperdesc__ = "Scrapes ROM information from AllGame.com"
+__scraperdesc__ = "Scrapes ROM information from AllGame"
 
 
 def get_games_by_name(search):
@@ -20,7 +20,6 @@ def get_games_by_name(search):
     """
     params = urllib.urlencode({'sql': search, 'opt1': 81})
     results = []
-    #display = []
     try:
         f = urllib.urlopen('http://www.allgame.com/search.php', params)
         for line in f.readlines():
@@ -31,7 +30,6 @@ def get_games_by_name(search):
             if '"platform.php?id=' in line:
                 game["system"] = ''.join(re.findall('<a[^>]*>(.*?)</a>', line))
                 results.append(game)
-                #display.append(game["title"] + " / " + game["gamesys"])
         return results
     except:
         return results
@@ -49,7 +47,7 @@ def get_games_with_system(game_name, system):
                 game["title"] = sutils.remove_html_codes(''.join(re.findall('<a[^>]*>(.*?)</a>', line)))
             if '"platform.php?id=' in line:
                 game["system"] = ''.join(re.findall('<a[^>]*>(.*?)</a>', line))
-                if ( game["system"].lower() == system.lower() ):
+                if game["system"].lower() == system.lower():
                     results.append(game)
         return results
     except:
