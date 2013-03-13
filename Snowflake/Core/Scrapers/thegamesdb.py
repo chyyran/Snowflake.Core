@@ -55,7 +55,7 @@ def get_games_with_system(search, system):
                            page)
         for item in games:
             game = {}
-            game["id"] = "http://thegamesdb.net/api/GetGame.php?id=" + item[0]
+            game["id"] = item[0]
             game["title"] = item[1]
             game["system"] = item[3]
             game["order"] = 1
@@ -70,14 +70,16 @@ def get_games_with_system(search, system):
         return results
 
 
-def get_game_datas(game_url):
-    gamedata = {}
-    gamedata["genre"] = ""
-    gamedata["release"] = ""
-    gamedata["studio"] = ""
-    gamedata["plot"] = ""
+def get_game_datas(game_id):
+    gamedata = {
+        'genre': "",
+        'release': "",
+        'studio': "",
+        'plot': ""
+    }
+
     try:
-        f = urllib.urlopen(game_url)
+        f = urllib.urlopen("http://thegamesdb.net/api/GetGame.php?id=" + game_id)
         page = f.read().replace('\n', '')
         game_genre = ' / '.join(re.findall('<genre>(.*?)</genre>', page))
         if game_genre:
@@ -94,4 +96,15 @@ def get_game_datas(game_url):
 
         return gamedata
     except:
-        return gamedata
+        return None
+
+
+def get_game_boxart(game_id):
+    try:
+        f = urllib.urlopen("http://thegamesdb.net/api/GetGame.php?id=" + str(game_id))
+        page = f.read().replace('\n', '')
+        boxarts = re.findall(r'<boxart side="front" (.*?)">(.*?)</boxart>', page)[0][1]
+        boxarts = "http://thegamesdb.net/banners/" + boxarts
+        return boxarts
+    except:
+        return None
