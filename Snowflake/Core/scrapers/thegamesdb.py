@@ -12,7 +12,7 @@ from Snowflake.Core.snowflakeutils import ScraperUtils as sutils
 __scrapername__ = "TheGamesDB"
 __scraperauthor__ = ["Angelscry", "ron975"]
 __scrapersite__ = "thegamesdb.net"
-__scraperdesc__ = "Scrapes ROM information from TheGamesDB.net API"
+__scraperdesc__ = "Scrapes ROM information from TheGamesDB API"
 __scraperfanarts__ = True
 
 
@@ -86,16 +86,16 @@ def get_game_datas(game_id):
         page = f.read().replace('\n', '')
         game_genre = ' / '.join(re.findall('<genre>(.*?)</genre>', page))
         if game_genre:
-            gamedata["genre"] = sutils.remove_html_codes(game_genre)
+            gamedata["genre"] = sutils.format_html_codes(game_genre)
         game_release = ''.join(re.findall('<ReleaseDate>(.*?)</ReleaseDate>', page))
         if game_release:
-            gamedata["release"] = sutils.remove_html_codes(game_release[-4:])
+            gamedata["release"] = sutils.format_html_codes(game_release[-4:])
         game_studio = ''.join(re.findall('<Developer>(.*?)</Developer>', page))
         if game_studio:
-            gamedata["studio"] = sutils.remove_html_codes(game_studio)
+            gamedata["studio"] = sutils.format_html_codes(game_studio)
         game_plot = ''.join(re.findall('<Overview>(.*?)</Overview>', page))
         if game_plot:
-            gamedata["plot"] = sutils.remove_html_codes(game_plot)
+            gamedata["plot"] = sutils.format_html_codes(game_plot)
 
         return gamedata
     except:

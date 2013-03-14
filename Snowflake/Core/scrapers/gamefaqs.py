@@ -25,7 +25,7 @@ def get_games_by_name(search):
             game = {}
             system = get[0].split('/')
             game["id"] = get[0].split('/')[2].split('-')[0]
-            game["title"] = sutils.remove_html_codes(get[1])
+            game["title"] = sutils.format_html_codes(get[1])
             game["system"] = system[1].upper()
             results.append(game)
         return results
@@ -43,7 +43,7 @@ def get_games_with_system(search, system):
         for get in gets:
             game = {}
             game["id"] = get[0].split('/')[2].split('-')[0]
-            game["title"] = sutils.remove_html_codes(get[1])
+            game["title"] = sutils.format_html_codes(get[1])
             game["system"] = system
             results.append(game)
         return results
@@ -73,7 +73,7 @@ def get_game_datas(game_id):
             gamedata["studio"] = p.sub('', game_studio[0][1])
         game_plot = re.findall(r'Description</h2></div><div class="body"><div class="details">(.*?)</div></div>', page)
         if game_plot:
-            gamedata["plot"] = sutils.remove_html_codes(game_plot[0])
+            gamedata["plot"] = sutils.format_html_codes(game_plot[0])
         return gamedata
     except:
         return gamedata

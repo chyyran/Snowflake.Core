@@ -11,7 +11,6 @@ import imp
 import urllib
 import mimetypes
 import json
-
 import Snowflake
 from scrapers import snowflakescraper as scraperbase
 from datastructures import Game
@@ -69,7 +68,10 @@ class GeneralUtils:
 
     @staticmethod
     def get_extension_from_url(url):
-        extension = mimetypes.guess_extension(mimetypes.guess_type(url)[0])
+        try:
+            extension = mimetypes.guess_extension(mimetypes.guess_type(url)[0])
+        except AttributeError:
+            extension = ".html"
         return extension
 
     @staticmethod
@@ -215,8 +217,9 @@ class ScraperUtils:
 
         return
 
+
     @staticmethod
-    def remove_html_codes(s):
+    def format_html_codes(s):
         """
         :author: Angelscry
         Replaces HTML character codes into their proper characters
@@ -233,5 +236,6 @@ class ScraperUtils:
         s = s.replace('&#x26;', '&')
         s = s.replace('&#x27;', "'")
         s = s.replace('&#xB0;', "°")
+        s = s.replace('\xe2\x80\x99', "'")
         return s
 

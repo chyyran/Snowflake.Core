@@ -46,7 +46,7 @@ def get_games_with_system(game_name, system):
             if '"game.php?id=' in line:
                 game = {}
                 game["id"] = ''.join(re.findall('<a[^>]*id=(.*?)">', line))
-                game["title"] = sutils.remove_html_codes(''.join(re.findall('<a[^>]*>(.*?)</a>', line)))
+                game["title"] = sutils.format_html_codes(''.join(re.findall('<a[^>]*>(.*?)</a>', line)))
             if '"platform.php?id=' in line:
                 game["system"] = ''.join(re.findall('<a[^>]*>(.*?)</a>', line))
                 if game["system"].lower() == system.lower():
@@ -82,7 +82,7 @@ def get_game_datas(game_id):
         plot = re.findall('<h2[^>]*>(.*?)</p>(.*?)<p>(.*?)</p>', page)
         if plot:
             p = re.compile(r'<.*?>')
-            gamedata["plot"] = sutils.remove_html_codes(p.sub('', plot[0][2]))
+            gamedata["plot"] = sutils.format_html_codes(p.sub('', plot[0][2]))
         return gamedata
     except:
         return gamedata
