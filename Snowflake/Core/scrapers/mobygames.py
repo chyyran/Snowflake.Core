@@ -29,22 +29,22 @@ def get_games_by_name(search):
                     game = {}
                     game["title"] = sutils.format_html_codes(game_title[0][1])
                     game["id"] = 'http://www.mobygames.com' + version[0]
-                    game["gamesys"] = version[1]
+                    game["system"] = version[1]
                     results.append(game)
             else:
                 game = {}
                 game["title"] = sutils.format_html_codes(game_title[0][1].replace('&#x26;', '&').replace('&#x27;', "'"))
                 one_version = re.findall('nowrap">(.*?) \(', games)
                 game["id"] = 'http://www.mobygames.com' + game_title[0][0]
-                game["gamesys"] = one_version[0]
+                game["system"] = one_version[0]
                 results.append(game)
         return results
     except:
         return results
 
 
-def get_games_with_system(search, gamesys):
-    platform = sutils.system_conversion(gamesys, sutils.GameSysColumns.MOBY_GAMES, sutils.GameSysColumns.SYSTEM_NAME)
+def get_games_with_system(search, system):
+    platform = sutils.system_conversion(system, sutils.GameSysColumns.MOBY_GAMES, sutils.GameSysColumns.SYSTEM_NAME)
     results = []
     try:
         f = urllib.urlopen('http://www.mobygames.com/search/quick?q=' + search.replace(' ',
@@ -60,13 +60,13 @@ def get_games_with_system(search, gamesys):
                     game = {}
                     game["title"] = sutils.format_html_codes(game_title[0][1])
                     game["id"] = 'http://www.mobygames.com' + version[0]
-                    game["gamesys"] = gamesys
+                    game["system"] = system
                     results.append(game)
             else:
                 game = {}
                 game["title"] = sutils.format_html_codes(game_title[0][1])
                 game["id"] = game_title[0][0]
-                game["gamesys"] = gamesys
+                game["system"] = system
                 results.append(game)
         return results
     except:
@@ -74,11 +74,12 @@ def get_games_with_system(search, gamesys):
 
 
 def get_game_datas(game_id):
-    gamedata = {}
-    gamedata["genre"] = ""
-    gamedata["release"] = ""
-    gamedata["studio"] = ""
-    gamedata["plot"] = ""
+    gamedata = {
+        'genre': "",
+        'release': "",
+        'studio': "",
+        'plot': ""
+    }
     try:
         f = urllib.urlopen('http://www.mobygames.com' + game_id)
         page = f.read().replace('\r\n', '').replace('\n', '')
@@ -100,7 +101,7 @@ def get_game_datas(game_id):
         return gamedata
 
 
-def get_game_boxart(game_id, region="All"):
+def get_game_boxart(game_id, region="EU"):
     covers = []
     try:
         f = urllib.urlopen('http://www.mobygames.com' + game_id + '/cover-art')
@@ -112,20 +113,19 @@ def get_game_boxart(game_id, region="All"):
         for index, country in enumerate(countries):
             if region == 'US' or 'Default':
                 if (country[1] == 'Canada') | (country[1] == 'United States'):
-                    found = found + 1
+                    found += 1
                     covers.append([country[5].replace('/small/', '/large/'), country[5], 'Cover ' + str(found)])
             if region == 'JP':
-                if (country[1] == 'Japan'):
-                    found = found + 1
+                if country[1] == 'Japan':
+                    found += 1
                     covers.append([country[5].replace('/small/', '/large/'), country[5], 'Cover ' + str(found)])
             if region == 'EU':
-                if (country[1] == 'Finland') | (country[1] == 'France') | (country[1] == 'Germany') | (
-                    country[1] == 'Italy') | (country[1] == 'The Netherlands') | (country[1] == 'Spain') | (
-                    country[1] == 'Sweden') | (country[1] == 'United Kingdom'):
-                    found = found + 1
+                if country[1] in ['Finland', 'France', 'Germany', 'Italy', 'The Netherlands', 'Spain', 'Sweden',
+                                  'United Kingdom']:
+                    found += 1
                     covers.append([country[5].replace('/small/', '/large/'), country[5], 'Cover ' + str(found)])
             if region == 'All':
-                found = found + 1
+                found += 1
                 covers.append([country[5].replace('/small/', '/large/'), country[5], 'Cover ' + str(found)])
                 allcovers = []
                 for cover in covers:
