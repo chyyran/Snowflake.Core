@@ -1,0 +1,1682 @@
+[
+    {
+        "SystemName": "3DO",
+        "ShortName": "3DO",
+        "Unknown": "18",
+        "GameFAQs": "15",
+        "GameFAQs_URL": "3do",
+        "MobyGames": "35",
+        "TheGamesDB": "3DO",
+        "GiantBomb": "26"
+    },
+    {
+        "SystemName": "Acorn Archimedes",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1058",
+        "GameFAQs_URL": "arch",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Action Max",
+        "ShortName": "",
+        "Unknown": "70000",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Adventure Vision",
+        "ShortName": "AVIS",
+        "Unknown": "26551",
+        "GameFAQs": "1042",
+        "GameFAQs_URL": "avision",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "93"
+    },
+    {
+        "SystemName": "Amstrad CPC",
+        "ShortName": "CPC",
+        "Unknown": "18832",
+        "GameFAQs": "1035",
+        "GameFAQs_URL": "cpc",
+        "MobyGames": "60",
+        "TheGamesDB": "",
+        "GiantBomb": "11"
+    },
+    {
+        "SystemName": "Android",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1061",
+        "GameFAQs_URL": "android",
+        "MobyGames": "91",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "APF-*1000/IM",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1020",
+        "GameFAQs_URL": "apf1000",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Apple II",
+        "ShortName": "APL2",
+        "Unknown": "6",
+        "GameFAQs": "25",
+        "GameFAQs_URL": "appleii",
+        "MobyGames": "31",
+        "TheGamesDB": "",
+        "GiantBomb": "12"
+    },
+    {
+        "SystemName": "Apple IIgs",
+        "ShortName": "A2GS",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "51",
+        "TheGamesDB": "",
+        "GiantBomb": "38"
+    },
+    {
+        "SystemName": "Arcade",
+        "ShortName": "ARC",
+        "Unknown": "1",
+        "GameFAQs": "26",
+        "GameFAQs_URL": "arcade",
+        "MobyGames": "",
+        "TheGamesDB": "Arcade",
+        "GiantBomb": "84"
+    },
+    {
+        "SystemName": "Arcadia",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Arcadia 2001",
+        "ShortName": "A2K1",
+        "Unknown": "17661",
+        "GameFAQs": "27",
+        "GameFAQs_URL": "a2k1",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "99"
+    },
+    {
+        "SystemName": "Astrocade",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1021",
+        "GameFAQs_URL": "astrocade",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Atari 2600",
+        "ShortName": "2600",
+        "Unknown": "",
+        "GameFAQs": "28",
+        "GameFAQs_URL": "atari2600",
+        "MobyGames": "28",
+        "TheGamesDB": "Atari 2600",
+        "GiantBomb": "40"
+    },
+    {
+        "SystemName": "Atari 5200",
+        "ShortName": "5200",
+        "Unknown": "12",
+        "GameFAQs": "29",
+        "GameFAQs_URL": "atari5200",
+        "MobyGames": "33",
+        "TheGamesDB": "Atari 5200",
+        "GiantBomb": "67"
+    },
+    {
+        "SystemName": "Atari 7800",
+        "ShortName": "7800",
+        "Unknown": "42",
+        "GameFAQs": "30",
+        "GameFAQs_URL": "atari7800",
+        "MobyGames": "34",
+        "TheGamesDB": "Atari 7800",
+        "GiantBomb": "70"
+    },
+    {
+        "SystemName": "Atari 8-bit",
+        "ShortName": "A800",
+        "Unknown": "28",
+        "GameFAQs": "31",
+        "GameFAQs_URL": "atari8bit",
+        "MobyGames": "39",
+        "TheGamesDB": "",
+        "GiantBomb": "24"
+    },
+    {
+        "SystemName": "Atari Jaguar",
+        "ShortName": "JAG",
+        "Unknown": "14",
+        "GameFAQs": "17",
+        "GameFAQs_URL": "jaguar",
+        "MobyGames": "17",
+        "TheGamesDB": "Atari Jaguar",
+        "GiantBomb": "28"
+    },
+    {
+        "SystemName": "Atari Jaguar CD",
+        "ShortName": "",
+        "Unknown": "25725",
+        "GameFAQs": "1004",
+        "GameFAQs_URL": "jaguarcd",
+        "MobyGames": "",
+        "TheGamesDB": "Atari Jaguar CD",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Atari Lynx",
+        "ShortName": "LYNX",
+        "Unknown": "13",
+        "GameFAQs": "40",
+        "GameFAQs_URL": "lynx",
+        "MobyGames": "18",
+        "TheGamesDB": "",
+        "GiantBomb": "7"
+    },
+    {
+        "SystemName": "Atari ST",
+        "ShortName": "AST",
+        "Unknown": "17658",
+        "GameFAQs": "1034",
+        "GameFAQs_URL": "ast",
+        "MobyGames": "24",
+        "TheGamesDB": "",
+        "GiantBomb": "13"
+    },
+    {
+        "SystemName": "Atari XE",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "Atari XE",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Bally Professionnal Arcade",
+        "ShortName": "",
+        "Unknown": "17659",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Bandai Pippin",
+        "ShortName": "PIPN",
+        "Unknown": "52333",
+        "GameFAQs": "1052",
+        "GameFAQs_URL": "pippin",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "102"
+    },
+    {
+        "SystemName": "BBC Micro",
+        "ShortName": "BBCM",
+        "Unknown": "",
+        "GameFAQs": "1053",
+        "GameFAQs_URL": "bbc",
+        "MobyGames": "92",
+        "TheGamesDB": "",
+        "GiantBomb": "110"
+    },
+    {
+        "SystemName": "BBS Door",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "32",
+        "GameFAQs_URL": "bbs",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "BD Video",
+        "ShortName": "",
+        "Unknown": "52178",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "BlackBerry",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1063",
+        "GameFAQs_URL": "blackberry",
+        "MobyGames": "90",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "BREW",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "63",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Casio Loopy",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1060",
+        "GameFAQs_URL": "loopy",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Cassette Vision",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1056",
+        "GameFAQs_URL": "ecv",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Channel F",
+        "ShortName": "CHNF",
+        "Unknown": "",
+        "GameFAQs": "34",
+        "GameFAQs_URL": "channelf",
+        "MobyGames": "76",
+        "TheGamesDB": "",
+        "GiantBomb": "66"
+    },
+    {
+        "SystemName": "ColecoVision",
+        "ShortName": "CVIS",
+        "Unknown": "15",
+        "GameFAQs": "35",
+        "GameFAQs_URL": "colecovision",
+        "MobyGames": "29",
+        "TheGamesDB": "Colecovision",
+        "GiantBomb": "47"
+    },
+    {
+        "SystemName": "Commodore 128",
+        "ShortName": "C128",
+        "Unknown": "8",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "61",
+        "TheGamesDB": "",
+        "GiantBomb": "58"
+    },
+    {
+        "SystemName": "Commodore 64",
+        "ShortName": "C64",
+        "Unknown": "8",
+        "GameFAQs": "36",
+        "GameFAQs_URL": "c64",
+        "MobyGames": "27",
+        "TheGamesDB": "Commodore 64",
+        "GiantBomb": "14"
+    },
+    {
+        "SystemName": "Commodore Amiga",
+        "ShortName": "AMI",
+        "Unknown": "10",
+        "GameFAQs": "24",
+        "GameFAQs_URL": "amiga",
+        "MobyGames": "19",
+        "TheGamesDB": "Amiga",
+        "GiantBomb": "1"
+    },
+    {
+        "SystemName": "Commodore Amiga CD32",
+        "ShortName": "CD32",
+        "Unknown": "17660",
+        "GameFAQs": "1059",
+        "GameFAQs_URL": "cd32",
+        "MobyGames": "56",
+        "TheGamesDB": "Amiga",
+        "GiantBomb": "39"
+    },
+    {
+        "SystemName": "Commodore CDTV",
+        "ShortName": "",
+        "Unknown": "33596",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Commodore PET",
+        "ShortName": "CBM",
+        "Unknown": "38082",
+        "GameFAQs": "1038",
+        "GameFAQs_URL": "pet",
+        "MobyGames": "77",
+        "TheGamesDB": "",
+        "GiantBomb": "62"
+    },
+    {
+        "SystemName": "Commodore VIC-20",
+        "ShortName": "VC20",
+        "Unknown": "7",
+        "GameFAQs": "48",
+        "GameFAQs_URL": "vic20",
+        "MobyGames": "43",
+        "TheGamesDB": "",
+        "GiantBomb": "30"
+    },
+    {
+        "SystemName": "CPS Changer",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1044",
+        "GameFAQs_URL": "cps",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "CreatiVision",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1048",
+        "GameFAQs_URL": "cvision",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Cybiko",
+        "ShortName": "",
+        "Unknown": "26887",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Doja",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "72",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "DOS",
+        "ShortName": "DOS",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "2",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Dragon 32/64",
+        "ShortName": "DRAG",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "79",
+        "TheGamesDB": "",
+        "GiantBomb": "61"
+    },
+    {
+        "SystemName": "Dreamcast",
+        "ShortName": "DC",
+        "Unknown": "20486",
+        "GameFAQs": "1",
+        "GameFAQs_URL": "dreamcast",
+        "MobyGames": "8",
+        "TheGamesDB": "Sega Dreamcast",
+        "GiantBomb": "37"
+    },
+    {
+        "SystemName": "DVD Video",
+        "ShortName": "",
+        "Unknown": "17676",
+        "GameFAQs": "1023",
+        "GameFAQs_URL": "dvd",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "e-Reader",
+        "ShortName": "",
+        "Unknown": "40612",
+        "GameFAQs": "1013",
+        "GameFAQs_URL": "ereader",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "EACA Colour Genie 2000",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1040",
+        "GameFAQs_URL": "cg2000",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Electron",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "93",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "ExEn",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "70",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Fairchild Video Entertainment System",
+        "ShortName": "",
+        "Unknown": "45",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Famicom Disk System",
+        "ShortName": "FDS",
+        "Unknown": "29108",
+        "GameFAQs": "1008",
+        "GameFAQs_URL": "famicomds",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "91"
+    },
+    {
+        "SystemName": "FM Towns",
+        "ShortName": "FMT",
+        "Unknown": "",
+        "GameFAQs": "1041",
+        "GameFAQs_URL": "fmtowns",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "108"
+    },
+    {
+        "SystemName": "FM-7",
+        "ShortName": "FM7",
+        "Unknown": "",
+        "GameFAQs": "1077",
+        "GameFAQs_URL": "fm7",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "114"
+    },
+    {
+        "SystemName": "Game Boy",
+        "ShortName": "GB",
+        "Unknown": "20",
+        "GameFAQs": "2",
+        "GameFAQs_URL": "gameboy",
+        "MobyGames": "10",
+        "TheGamesDB": "Nintendo Game Boy",
+        "GiantBomb": "3"
+    },
+    {
+        "SystemName": "Game Boy Advance",
+        "ShortName": "GBA",
+        "Unknown": "20487",
+        "GameFAQs": "12",
+        "GameFAQs_URL": "gba",
+        "MobyGames": "12",
+        "TheGamesDB": "Nintendo Game Boy Advance",
+        "GiantBomb": "4"
+    },
+    {
+        "SystemName": "Game Boy Color",
+        "ShortName": "GBC",
+        "Unknown": "17662",
+        "GameFAQs": "9",
+        "GameFAQs_URL": "gbc",
+        "MobyGames": "11",
+        "TheGamesDB": "Nintendo Game Boy Color",
+        "GiantBomb": "57"
+    },
+    {
+        "SystemName": "Game Park 32",
+        "ShortName": "",
+        "Unknown": "41216",
+        "GameFAQs": "37",
+        "GameFAQs_URL": "gp32",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Game Wave",
+        "ShortName": "GWAV",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "105"
+    },
+    {
+        "SystemName": "Game.com",
+        "ShortName": "GCOM",
+        "Unknown": "32",
+        "GameFAQs": "38",
+        "GameFAQs_URL": "gamecom",
+        "MobyGames": "50",
+        "TheGamesDB": "",
+        "GiantBomb": "77"
+    },
+    {
+        "SystemName": "Gizmondo",
+        "ShortName": "GIZ",
+        "Unknown": "46648",
+        "GameFAQs": "1030",
+        "GameFAQs_URL": "gizmondo",
+        "MobyGames": "55",
+        "TheGamesDB": "",
+        "GiantBomb": "78"
+    },
+    {
+        "SystemName": "HD-DVD Video",
+        "ShortName": "HDDVD",
+        "Unknown": "52704",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Hybrid Windows/Mac",
+        "ShortName": "",
+        "Unknown": "46",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Hyperscan",
+        "ShortName": "HSCN",
+        "Unknown": "51200",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "104"
+    },
+    {
+        "SystemName": "IBM PC Compatible",
+        "ShortName": "PC",
+        "Unknown": "2",
+        "GameFAQs": "5",
+        "GameFAQs_URL": "pc",
+        "MobyGames": "3",
+        "TheGamesDB": "PC",
+        "GiantBomb": "94"
+    },
+    {
+        "SystemName": "Intellivision",
+        "ShortName": "INTV",
+        "Unknown": "16",
+        "GameFAQs": "39",
+        "GameFAQs_URL": "intellivision",
+        "MobyGames": "30",
+        "TheGamesDB": "Intellivision",
+        "GiantBomb": "51"
+    },
+    {
+        "SystemName": "Interton VC4000",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1047",
+        "GameFAQs_URL": "vc4000",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "iPad",
+        "ShortName": "",
+        "Unknown": "72175",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "96",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "iPhone",
+        "ShortName": "IPHN",
+        "Unknown": "67450",
+        "GameFAQs": "1049",
+        "GameFAQs_URL": "iphone",
+        "MobyGames": "86",
+        "TheGamesDB": "",
+        "GiantBomb": "96"
+    },
+    {
+        "SystemName": "iPod Classic",
+        "ShortName": "IPOD",
+        "Unknown": "",
+        "GameFAQs": "1049",
+        "GameFAQs_URL": "iphone",
+        "MobyGames": "80",
+        "TheGamesDB": "",
+        "GiantBomb": "72"
+    },
+    {
+        "SystemName": "J2ME",
+        "ShortName": "J2ME",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "64",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "JVC X'Eye",
+        "ShortName": "",
+        "Unknown": "18826",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Linux",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "47",
+        "GameFAQs_URL": "unixlinux",
+        "MobyGames": "1",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Macintosh",
+        "ShortName": "MAC",
+        "Unknown": "5",
+        "GameFAQs": "42",
+        "GameFAQs_URL": "mac",
+        "MobyGames": "74",
+        "TheGamesDB": "Mac OS",
+        "GiantBomb": "17"
+    },
+    {
+        "SystemName": "Mattel Aquarius",
+        "ShortName": "AQUA",
+        "Unknown": "38119",
+        "GameFAQs": "1039",
+        "GameFAQs_URL": "aquarius",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "100"
+    },
+    {
+        "SystemName": "Milton Bradley Microvision",
+        "ShortName": "MVIS",
+        "Unknown": "17664",
+        "GameFAQs": "43",
+        "GameFAQs_URL": "microvision",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "90"
+    },
+    {
+        "SystemName": "Mobile",
+        "ShortName": "",
+        "Unknown": "44984",
+        "GameFAQs": "1025",
+        "GameFAQs_URL": "mobile",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Mophun",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "71",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "MSX Series PC",
+        "ShortName": "MSX",
+        "Unknown": "49210",
+        "GameFAQs": "41",
+        "GameFAQs_URL": "",
+        "MobyGames": "57",
+        "TheGamesDB": "",
+        "GiantBomb": "15"
+    },
+    {
+        "SystemName": "N-Gage",
+        "ShortName": "NGE",
+        "Unknown": "42646",
+        "GameFAQs": "1006",
+        "GameFAQs_URL": "ngage",
+        "MobyGames": "32",
+        "TheGamesDB": "",
+        "GiantBomb": "34"
+    },
+    {
+        "SystemName": "N-Gage (Service)",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "89",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Nec PC-88",
+        "ShortName": "PC88",
+        "Unknown": "",
+        "GameFAQs": "1065",
+        "GameFAQs_URL": "pc88",
+        "MobyGames": "94",
+        "TheGamesDB": "",
+        "GiantBomb": "109"
+    },
+    {
+        "SystemName": "Nec PC-98",
+        "ShortName": "PC98",
+        "Unknown": "",
+        "GameFAQs": "1033",
+        "GameFAQs_URL": "pc98",
+        "MobyGames": "95",
+        "TheGamesDB": "",
+        "GiantBomb": "112"
+    },
+    {
+        "SystemName": "Nec PC-FX",
+        "ShortName": "PCFX",
+        "Unknown": "25727",
+        "GameFAQs": "45",
+        "GameFAQs_URL": "pcfx",
+        "MobyGames": "59",
+        "TheGamesDB": "",
+        "GiantBomb": "75"
+    },
+    {
+        "SystemName": "Neo Geo Advanced Entertainment System",
+        "ShortName": "NEO",
+        "Unknown": "33",
+        "GameFAQs": "18",
+        "GameFAQs_URL": "neo",
+        "MobyGames": "36",
+        "TheGamesDB": "NeoGeo",
+        "GiantBomb": "25"
+    },
+    {
+        "SystemName": "Neo Geo CD",
+        "ShortName": "NGCD",
+        "Unknown": "36114",
+        "GameFAQs": "1007",
+        "GameFAQs_URL": "neogeocd",
+        "MobyGames": "54",
+        "TheGamesDB": "",
+        "GiantBomb": "59"
+    },
+    {
+        "SystemName": "Neo Geo Pocket",
+        "ShortName": "NGP",
+        "Unknown": "17665",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "52",
+        "TheGamesDB": "",
+        "GiantBomb": "80"
+    },
+    {
+        "SystemName": "Neo Geo Pocket Color",
+        "ShortName": "NGPC",
+        "Unknown": "17666",
+        "GameFAQs": "3",
+        "GameFAQs_URL": "ngpc",
+        "MobyGames": "53",
+        "TheGamesDB": "",
+        "GiantBomb": "81"
+    },
+    {
+        "SystemName": "Nintendo 3DS",
+        "ShortName": "",
+        "Unknown": "73068",
+        "GameFAQs": "1068",
+        "GameFAQs_URL": "3ds",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Nintendo 64",
+        "ShortName": "N64",
+        "Unknown": "22",
+        "GameFAQs": "4",
+        "GameFAQs_URL": "n64",
+        "MobyGames": "9",
+        "TheGamesDB": "Nintendo 64",
+        "GiantBomb": "43"
+    },
+    {
+        "SystemName": "Nintendo 64DD",
+        "ShortName": "64DD",
+        "Unknown": "36136",
+        "GameFAQs": "1012",
+        "GameFAQs_URL": "n64dd",
+        "MobyGames": "9",
+        "TheGamesDB": "Nintendo 64",
+        "GiantBomb": "101"
+    },
+    {
+        "SystemName": "Nintendo DS",
+        "ShortName": "DS",
+        "Unknown": "45571",
+        "GameFAQs": "1026",
+        "GameFAQs_URL": "ds",
+        "MobyGames": "44",
+        "TheGamesDB": "Nintendo DS",
+        "GiantBomb": "52"
+    },
+    {
+        "SystemName": "Nintendo DSi",
+        "ShortName": "DSI",
+        "Unknown": "67128",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "87",
+        "TheGamesDB": "Nintendo DS",
+        "GiantBomb": "106"
+    },
+    {
+        "SystemName": "Nintendo Entertainment System",
+        "ShortName": "NES",
+        "Unknown": "19",
+        "GameFAQs": "19",
+        "GameFAQs_URL": "nes",
+        "MobyGames": "22",
+        "TheGamesDB": "Nintendo Entertainment System (NES)",
+        "GiantBomb": "21"
+    },
+    {
+        "SystemName": "Nintendo GameCube",
+        "ShortName": "GC",
+        "Unknown": "17667",
+        "GameFAQs": "11",
+        "GameFAQs_URL": "gamecube",
+        "MobyGames": "14",
+        "TheGamesDB": "Nintendo GameCube",
+        "GiantBomb": "23"
+    },
+    {
+        "SystemName": "Nintendo Wii U",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "wii-u",
+        "MobyGames": "",
+        "TheGamesDB": "Nintendo Wii U",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Nuon",
+        "ShortName": "NUON",
+        "Unknown": "17668",
+        "GameFAQs": "14",
+        "GameFAQs_URL": "nuon",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "85"
+    },
+    {
+        "SystemName": "Odyssey",
+        "ShortName": "ODY",
+        "Unknown": "25728",
+        "GameFAQs": "1011",
+        "GameFAQs_URL": "odyssey",
+        "MobyGames": "75",
+        "TheGamesDB": "",
+        "GiantBomb": "74"
+    },
+    {
+        "SystemName": "Odyssey 2",
+        "ShortName": "ODY2",
+        "Unknown": "17",
+        "GameFAQs": "44",
+        "GameFAQs_URL": "odyssey2",
+        "MobyGames": "78",
+        "TheGamesDB": "",
+        "GiantBomb": "60"
+    },
+    {
+        "SystemName": "Online/Browser",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1010",
+        "GameFAQs_URL": "webonly",
+        "MobyGames": "84",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Oric 1/Atmos",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1037",
+        "GameFAQs_URL": "oric1",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "OS/2",
+        "ShortName": "OS2",
+        "Unknown": "",
+        "GameFAQs": "1018",
+        "GameFAQs_URL": "os2",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Palm OS",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1015",
+        "GameFAQs_URL": "palmos",
+        "MobyGames": "65",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Palm webOS",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1062",
+        "GameFAQs_URL": "palm-webos",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "PC-Booter",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "4",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Philips CD-i",
+        "ShortName": "CDI",
+        "Unknown": "34",
+        "GameFAQs": "33",
+        "GameFAQs_URL": "cdi",
+        "MobyGames": "73",
+        "TheGamesDB": "",
+        "GiantBomb": "27"
+    },
+    {
+        "SystemName": "Pinball",
+        "ShortName": "PIN",
+        "Unknown": "",
+        "GameFAQs": "1009",
+        "GameFAQs_URL": "pinball",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "83"
+    },
+    {
+        "SystemName": "Pioneer LaserActive",
+        "ShortName": "LACT",
+        "Unknown": "17669",
+        "GameFAQs": "1046",
+        "GameFAQs_URL": "laser",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "92"
+    },
+    {
+        "SystemName": "PLATO",
+        "ShortName": "PLATO",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "111"
+    },
+    {
+        "SystemName": "Playdia",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "46",
+        "GameFAQs_URL": "playdia",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Playstation",
+        "ShortName": "PS1",
+        "Unknown": "27",
+        "GameFAQs": "6",
+        "GameFAQs_URL": "ps",
+        "MobyGames": "6",
+        "TheGamesDB": "Sony Playstation",
+        "GiantBomb": "22"
+    },
+    {
+        "SystemName": "Playstation 2",
+        "ShortName": "PS2",
+        "Unknown": "47",
+        "GameFAQs": "7",
+        "GameFAQs_URL": "ps2",
+        "MobyGames": "7",
+        "TheGamesDB": "Sony Playstation 2",
+        "GiantBomb": "19"
+    },
+    {
+        "SystemName": "Playstation 3",
+        "ShortName": "PS3",
+        "Unknown": "45561",
+        "GameFAQs": "1028",
+        "GameFAQs_URL": "ps3",
+        "MobyGames": "81",
+        "TheGamesDB": "Sony Playstation 3",
+        "GiantBomb": "35"
+    },
+    {
+        "SystemName": "Playstation 4",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1071",
+        "GameFAQs_URL": "ps4",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Playstation Portable",
+        "ShortName": "PSP",
+        "Unknown": "",
+        "GameFAQs": "1024",
+        "GameFAQs_URL": "psp",
+        "MobyGames": "46",
+        "TheGamesDB": "Sony PSP",
+        "GiantBomb": "18"
+    },
+    {
+        "SystemName": "Plug and Play",
+        "ShortName": "",
+        "Unknown": "31822",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Pokemon Mini",
+        "ShortName": "",
+        "Unknown": "41008",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "RCA Studio II",
+        "ShortName": "",
+        "Unknown": "17670",
+        "GameFAQs": "1045",
+        "GameFAQs_URL": "studio2",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "RDI Halycon",
+        "ShortName": "HALC",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "107"
+    },
+    {
+        "SystemName": "Redemption",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1019",
+        "GameFAQs_URL": "redemption",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Satellaview",
+        "ShortName": "BS-X",
+        "Unknown": "21",
+        "GameFAQs": "21",
+        "GameFAQs_URL": "snes",
+        "MobyGames": "15",
+        "TheGamesDB": "Super Nintendo (SNES)",
+        "GiantBomb": "98"
+    },
+    {
+        "SystemName": "Sega CD",
+        "ShortName": "SCD",
+        "Unknown": "36",
+        "GameFAQs": "1002",
+        "GameFAQs_URL": "segacd",
+        "MobyGames": "20",
+        "TheGamesDB": "Sega CD",
+        "GiantBomb": "29"
+    },
+    {
+        "SystemName": "Sega Game Gear",
+        "ShortName": "GG",
+        "Unknown": "25",
+        "GameFAQs": "16",
+        "GameFAQs_URL": "gamegear",
+        "MobyGames": "25",
+        "TheGamesDB": "Sega Game Gear",
+        "GiantBomb": "5"
+    },
+    {
+        "SystemName": "Sega Genesis",
+        "ShortName": "GEN",
+        "Unknown": "24",
+        "GameFAQs": "10",
+        "GameFAQs_URL": "genesis",
+        "MobyGames": "16",
+        "TheGamesDB": "Sega Genesis",
+        "GiantBomb": "6"
+    },
+    {
+        "SystemName": "Sega Genesis 32",
+        "ShortName": "",
+        "Unknown": "35",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Sega Genesis 32X CD",
+        "ShortName": "32X",
+        "Unknown": "43",
+        "GameFAQs": "1003",
+        "GameFAQs_URL": "sega32x",
+        "MobyGames": "21",
+        "TheGamesDB": "Sega 32X",
+        "GiantBomb": "31"
+    },
+    {
+        "SystemName": "Sega Genesis CDX",
+        "ShortName": "",
+        "Unknown": "17675",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Sega Genesis Nomad",
+        "ShortName": "",
+        "Unknown": "17671",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Sega Master System",
+        "ShortName": "SMS",
+        "Unknown": "23",
+        "GameFAQs": "20",
+        "GameFAQs_URL": "sms",
+        "MobyGames": "26",
+        "TheGamesDB": "Sega Master System",
+        "GiantBomb": "8"
+    },
+    {
+        "SystemName": "Sega Pico",
+        "ShortName": "",
+        "Unknown": "40",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Sega Saturn",
+        "ShortName": "SAT",
+        "Unknown": "26",
+        "GameFAQs": "8",
+        "GameFAQs_URL": "saturn",
+        "MobyGames": "23",
+        "TheGamesDB": "Sega Saturn",
+        "GiantBomb": "42"
+    },
+    {
+        "SystemName": "SG-1000",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1017",
+        "GameFAQs_URL": "sg1000",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Sharp X1",
+        "ShortName": "X1",
+        "Unknown": "",
+        "GameFAQs": "1066",
+        "GameFAQs_URL": "x1",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "113"
+    },
+    {
+        "SystemName": "Sharp X68000",
+        "ShortName": "X68K",
+        "Unknown": "",
+        "GameFAQs": "1032",
+        "GameFAQs_URL": "x68000",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": "95"
+    },
+    {
+        "SystemName": "Sinclair ZX Spectrum",
+        "ShortName": "SPEC",
+        "Unknown": "17672",
+        "GameFAQs": "1050",
+        "GameFAQs_URL": "sinclair",
+        "MobyGames": "41",
+        "TheGamesDB": "",
+        "GiantBomb": "16"
+    },
+    {
+        "SystemName": "Sony Playstation Vita",
+        "ShortName": "VITA",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "vita",
+        "MobyGames": "",
+        "TheGamesDB": "Sony Playstation Vita",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Sord M5",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1054",
+        "GameFAQs_URL": "sordm5",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Spectravideo",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "85",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Super Cassette Vision",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1057",
+        "GameFAQs_URL": "scv",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Super Nintendo Entertainment System",
+        "ShortName": "SNES",
+        "Unknown": "21",
+        "GameFAQs": "21",
+        "GameFAQs_URL": "snes",
+        "MobyGames": "15",
+        "TheGamesDB": "Super Nintendo (SNES)",
+        "GiantBomb": "9"
+    },
+    {
+        "SystemName": "SuperGrafx",
+        "ShortName": "",
+        "Unknown": "25723",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Supervision",
+        "ShortName": "",
+        "Unknown": "38798",
+        "GameFAQs": "1043",
+        "GameFAQs_URL": "svision",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Symbian",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "67",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Texas Instruments TI-99/A4",
+        "ShortName": "TI99",
+        "Unknown": "39",
+        "GameFAQs": "1051",
+        "GameFAQs_URL": "ti99",
+        "MobyGames": "47",
+        "TheGamesDB": "",
+        "GiantBomb": "48"
+    },
+    {
+        "SystemName": "Timex Sinclair",
+        "ShortName": "",
+        "Unknown": "31",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "TRS-80",
+        "ShortName": "TRS8",
+        "Unknown": "38",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "58",
+        "TheGamesDB": "",
+        "GiantBomb": "63"
+    },
+    {
+        "SystemName": "TRS-80 CoCo",
+        "ShortName": "COCO",
+        "Unknown": "",
+        "GameFAQs": "1036",
+        "GameFAQs_URL": "coco",
+        "MobyGames": "62",
+        "TheGamesDB": "",
+        "GiantBomb": "68"
+    },
+    {
+        "SystemName": "TurboDuo",
+        "ShortName": "",
+        "Unknown": "25726",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "TurboGrafx CD",
+        "ShortName": "TGCD",
+        "Unknown": "25724",
+        "GameFAQs": "1005",
+        "GameFAQs_URL": "turbocd",
+        "MobyGames": "45",
+        "TheGamesDB": "",
+        "GiantBomb": "53"
+    },
+    {
+        "SystemName": "TurboGrafx-16",
+        "ShortName": "TG16",
+        "Unknown": "30",
+        "GameFAQs": "22",
+        "GameFAQs_URL": "tg16",
+        "MobyGames": "40",
+        "TheGamesDB": "TurboGrafx 16",
+        "GiantBomb": "55"
+    },
+    {
+        "SystemName": "TurboGrafx-16 TurboExpress",
+        "ShortName": "",
+        "Unknown": "17673",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "V.Smile",
+        "ShortName": "VSML",
+        "Unknown": "",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "42",
+        "TheGamesDB": "",
+        "GiantBomb": "82"
+    },
+    {
+        "SystemName": "Vectrex",
+        "ShortName": "VECT",
+        "Unknown": "44",
+        "GameFAQs": "49",
+        "GameFAQs_URL": "vectrex",
+        "MobyGames": "37",
+        "TheGamesDB": "",
+        "GiantBomb": "76"
+    },
+    {
+        "SystemName": "Virtual Boy",
+        "ShortName": "VBOY",
+        "Unknown": "37",
+        "GameFAQs": "50",
+        "GameFAQs_URL": "virtualboy",
+        "MobyGames": "38",
+        "TheGamesDB": "",
+        "GiantBomb": "79"
+    },
+    {
+        "SystemName": "WebTV Plus",
+        "ShortName": "",
+        "Unknown": "29096",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Wii",
+        "ShortName": "WII",
+        "Unknown": "49611",
+        "GameFAQs": "1031",
+        "GameFAQs_URL": "wii",
+        "MobyGames": "82",
+        "TheGamesDB": "Nintendo Wii",
+        "GiantBomb": "36"
+    },
+    {
+        "SystemName": "Wii Shop",
+        "ShortName": "WSHP",
+        "Unknown": "",
+        "GameFAQs": "1031",
+        "GameFAQs_URL": "wii",
+        "MobyGames": "",
+        "TheGamesDB": "Nintendo Wii",
+        "GiantBomb": "87"
+    },
+    {
+        "SystemName": "Windows Mobile",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1014",
+        "GameFAQs_URL": "windows-mobile",
+        "MobyGames": "66",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Windows Phone 7",
+        "ShortName": "WP7",
+        "Unknown": "73830",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "WonderSwan",
+        "ShortName": "WSC",
+        "Unknown": "24032",
+        "GameFAQs": "1022",
+        "GameFAQs_URL": "wonderswan",
+        "MobyGames": "48",
+        "TheGamesDB": "",
+        "GiantBomb": "65"
+    },
+    {
+        "SystemName": "WonderSwan Color",
+        "ShortName": "WSC",
+        "Unknown": "31912",
+        "GameFAQs": "23",
+        "GameFAQs_URL": "wsc",
+        "MobyGames": "49",
+        "TheGamesDB": "",
+        "GiantBomb": "54"
+    },
+    {
+        "SystemName": "XaviXPORT",
+        "ShortName": "",
+        "Unknown": "46162",
+        "GameFAQs": "",
+        "GameFAQs_URL": "",
+        "MobyGames": "",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Xbox",
+        "ShortName": "XBOX",
+        "Unknown": "26052",
+        "GameFAQs": "13",
+        "GameFAQs_URL": "xbox",
+        "MobyGames": "13",
+        "TheGamesDB": "Microsoft Xbox",
+        "GiantBomb": "32"
+    },
+    {
+        "SystemName": "Xbox 360",
+        "ShortName": "X360",
+        "Unknown": "47504",
+        "GameFAQs": "1029",
+        "GameFAQs_URL": "xbox360",
+        "MobyGames": "69",
+        "TheGamesDB": "Microsoft Xbox 360",
+        "GiantBomb": "20"
+    },
+    {
+        "SystemName": "Zeebo",
+        "ShortName": "",
+        "Unknown": "",
+        "GameFAQs": "1067",
+        "GameFAQs_URL": "zeebo",
+        "MobyGames": "88",
+        "TheGamesDB": "",
+        "GiantBomb": ""
+    },
+    {
+        "SystemName": "Zodiac",
+        "ShortName": "ZOD",
+        "Unknown": "44999",
+        "GameFAQs": "1027",
+        "GameFAQs_URL": "zod",
+        "MobyGames": "68",
+        "TheGamesDB": "",
+        "GiantBomb": "64"
+    }
+]
