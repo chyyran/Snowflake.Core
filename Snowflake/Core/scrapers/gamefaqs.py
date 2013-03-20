@@ -6,7 +6,9 @@ This file is part of Snowflake.Core
 
 import urllib
 import re
+import Snowflake.Core.SystemColumns as SystemColumns
 from Snowflake.Core.snowflakeutils import ScraperUtils as sutils
+
 
 __scrapername__ = "GameFAQs"
 __scraperauthor__ = ["Angelscry", "ron975"]
@@ -34,7 +36,7 @@ def get_games_by_name(search):
 
 
 def get_games_with_system(search, system):
-    platform = sutils.system_conversion(system, sutils.GameSysColumns.GAME_FAQS)
+    platform = sutils.system_conversion(system, GAME_FAQS)
     results = []
     try:
         f = urllib.urlopen('http://www.gamefaqs.com/search/index.html?platform={0}&game={1}'

@@ -1,0 +1,30 @@
+-   consolename: "Super Nintendo Entertainment System"
+    shortname: "SNES"
+    table: "SNES"
+    run: "C:\\Program Files\\SNES9x\\SNES9x.exe \"%rom%\" [-config \"%config%\"]"
+    imagepath: "C:\\Assets\\Image\\SNES.png\\"
+    rompaths:
+        - "C:\\Roms\\SNES\\"
+    extensions:
+        - ".smc"
+        - ".sfc"
+        - ".zip"
+    scrapers:
+        - "thegamesdb"
+        - "allgame"
+        - "mobygames"
+
+-   consolename: "Nintendo Entertainment System"
+    shortname: "NES"
+    table: "NES"
+    run: "C:\\Program Files\\FCEUX\\FCEUX.exe \"%rom%\" [-config \"%config%\"]"
+    imagepath: "C:\\Assets\\Image\\NES.png\\"
+    rompaths:
+        - "C:\\Roms\\NES\\"
+    extensions:
+        - ".nes"
+        - ".zip"
+    scrapers:
+        - "thegamesdb"
+        - "allgame"
+        - "mobygames"

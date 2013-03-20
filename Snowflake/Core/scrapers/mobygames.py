@@ -5,6 +5,8 @@ This file is part of Snowflake.Core
 """
 import urllib
 import re
+import Snowflake.Core.SystemColumns as SystemColumns
+
 from Snowflake.Core.snowflakeutils import ScraperUtils as sutils
 
 __scrapername__ = "MobyGames"
@@ -44,7 +46,7 @@ def get_games_by_name(search):
 
 
 def get_games_with_system(search, system):
-    platform = sutils.system_conversion(system, sutils.GameSysColumns.MOBY_GAMES, sutils.GameSysColumns.SYSTEM_NAME)
+    platform = sutils.system_conversion(system, SystemColumns.MOBY_GAMES, SystemColumns.SYSTEM_NAME)
     results = []
     try:
         f = urllib.urlopen('http://www.mobygames.com/search/quick?q=' + search.replace(' ',

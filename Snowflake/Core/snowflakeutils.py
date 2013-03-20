@@ -11,12 +11,14 @@ import imp
 import urllib
 import mimetypes
 import json
+import yaml
 import Snowflake
 from scrapers import snowflakescraper as scraperbase
+import SystemColumns
 from datastructures import Game
 
+class DataUtils:
 
-class CommandUtils:
     @staticmethod
     def get_consoles():
         """
@@ -30,6 +32,7 @@ class CommandUtils:
         """
         return None
 
+
     @staticmethod
     def get_games(console):
         """
@@ -41,7 +44,29 @@ class CommandUtils:
         return None
 
 
+class ConfigUtils:
+
+    @staticmethod
+    def get_config():
+        return yaml.load(open(os.path.join(GeneralUtils.get_core_directory(), "config.yml")))
+
+    @staticmethod
+    def get_system_from_config(consolename):
+        for system in yaml.load(open(os.path.join(GeneralUtils.get_core_directory(), "systems.yml"))):
+            if consolename in [system["consolename"], system["shortname"]]:
+                return system
+        return None
+
+
 class GeneralUtils:
+
+    @staticmethod
+    def parse_command(file_stream, command):
+        if command == "TestCommand":
+            GeneralUtils.write_to_stream(file_stream, "Received Test Command\0")
+            return "Received Test Command\0"
+        return "Invalid Command"
+
     @staticmethod
     def get_core_directory():
         return os.path.dirname(Snowflake.Core.__file__)
@@ -83,13 +108,6 @@ class GeneralUtils:
         """
         print "[Snowflake.Core] " + str(string)
 
-    @staticmethod
-    def parse_command(file_stream, command):
-        if command == "TestCommand":
-            GeneralUtils.write_to_stream(file_stream, "Received Test Command\0")
-            return "Received Test Command\0"
-
-        return "Invalid Command"
 
     @staticmethod
     def write_to_stream(self, file_stream, string):
@@ -128,19 +146,6 @@ class GeneralUtils:
 
 
 class ScraperUtils:
-    class GameSysColumns:
-        GAME_FAQS = "GameFAQs"
-        THE_GAMES_DB = "TheGamesDB"
-        MOBY_GAMES = "MobyGames"
-        SYSTEM_NAME = "SystemName"
-        SHORT_NAME = "ShortName"
-
-    @staticmethod
-    def scrape_game(game_name, system):
-        """Builds a Game Object"""
-
-        return Game()
-
     @staticmethod
     def get_scrapers_directory():
         return os.path.dirname(os.path.realpath(scraperbase.__file__))
@@ -185,12 +190,12 @@ class ScraperUtils:
             print "Failed to insert JSON into Database: " + e.args[0]
 
     @staticmethod
-    def system_conversion(system_id, scraper_site, search_column=GameSysColumns.SYSTEM_NAME):
+    def system_conversion(system_id, scraper_site, search_column=SystemColumns.SYSTEM_NAME):
         """
         Replaces _system_conversion in Angelscry's unmodified scrapers.
         Uses a SQLite3 database rather than the default CSV for speed and constancy
         :param system_id: Search string, for example "Nintendo Entertainment System". For reference, check systems.json
-        :param scraper_site: Scraper column, recommended to use a GameSysColumn constant, eg GameSysColumns.GAME_FAQS
+        :param scraper_site: Scraper column, recommended to use a GameSysColumn constant, eg SystemColumns.GAME_FAQS
         :param search_column: Column to search for. Currently, only GameSysColumn.SYSTEM_NAME, works.
         :rtype : str
         """
@@ -205,7 +210,17 @@ class ScraperUtils:
             return ''
 
     @staticmethod
-    def get_best_match(game_list, game_name):
+    def get_best_from_results(game_searches, game_name):
+        best_match = {}
+        best_ratio = 0
+        for scraper, game_search in game_searches.iteritems():
+            if difflib.SequenceMatcher(None, game_search["title"], game_name).ratio() > best_ratio:
+                best_ratio = difflib.SequenceMatcher(None, game_search["title"], game_name).ratio()
+                best_match = {"scraper": scraper, "search": game_search}
+        return best_match
+
+    @staticmethod
+    def get_best_search_result(game_list, game_name):
         best_match = {}
         best_ratio = 0
         for game in game_list:

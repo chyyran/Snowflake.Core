@@ -17,13 +17,19 @@ class Command():
 
 
 class Console():
-    def __init__(self, console_name, image_path, short_name):
-        self.console_name = console_name
-        self.image_path = image_path
-        self.short_name = short_name
+    def __init__(self, consolename, shortname, table, run, imagepath, rompaths, extensions, scrapers):
+        self.consolename = consolename
+        self.shortname = shortname
+        self.table = table
+        self.run = run
+        self.imagepath = imagepath
+        self.rompaths = rompaths
+        self.extensions = extensions
+        self.scrapers = scrapers
+
 
     def __repr__(self):
-        return self.console_name
+        return self.consolename
 
 
 class Game():

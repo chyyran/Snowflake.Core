@@ -6,6 +6,8 @@ This file is part of Snowflake.Core
 
 import urllib
 import re
+import Snowflake.Core.SystemColumns as SystemColumns
+
 from Snowflake.Core.snowflakeutils import ScraperUtils as sutils
 
 
@@ -42,7 +44,7 @@ def get_games_by_name(search):
 
 
 def get_games_with_system(search, system):
-    platform = sutils.system_conversion(system, sutils.GameSysColumns.THE_GAMES_DB)
+    platform = sutils.system_conversion(system, SystemColumns.THE_GAMES_DB)
     params = urllib.urlencode({"name": search, "platform": platform})
     results = []
     try:
@@ -64,8 +66,8 @@ def get_games_with_system(search, system):
                 game["order"] += 1
             if game["title"].lower().find(search.lower()) != -1:
                 game["order"] += 1
-            if sutils.system_conversion(item[3], sutils.GameSysColumns.SYSTEM_NAME,
-                                        sutils.GameSysColumns.THE_GAMES_DB).lower() == system.lower():
+            if sutils.system_conversion(item[3], SystemColumns.SYSTEM_NAME,
+                                        SystemColumns.THE_GAMES_DB).lower() == system.lower():
                 results.append(game)
         results.sort(key=lambda result: result["order"], reverse=True)
         return results
