@@ -14,6 +14,7 @@ import json
 import yaml
 import Snowflake
 from scrapers import snowflakescraper as scraperbase
+from datastructures import Console
 import SystemColumns
 from datastructures import Game
 
@@ -51,10 +52,17 @@ class ConfigUtils:
         return yaml.load(open(os.path.join(GeneralUtils.get_core_directory(), "config.yml")))
 
     @staticmethod
-    def get_system_from_config(consolename):
+    def get_console_from_config(consolename):
         for system in yaml.load(open(os.path.join(GeneralUtils.get_core_directory(), "systems.yml"))):
             if consolename in [system["consolename"], system["shortname"]]:
-                return system
+                return Console(system["consolename"],
+                               system["shortname"],
+                               system["table"],
+                               system["run"],
+                               system["imagepath"],
+                               system["rompaths"],
+                               system["extensions"],
+                               system["scrapers"])
         return None
 
 
