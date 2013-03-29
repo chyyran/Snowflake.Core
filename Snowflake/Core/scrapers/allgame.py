@@ -56,7 +56,7 @@ def get_games_with_system(game_name, system):
         return results
 
 
-def get_game_datas(game_id):
+def get_game_datas(game_id, title):
     gamedata = {
         'title': "",
         'genre': "",
@@ -66,6 +66,7 @@ def get_game_datas(game_id):
     }
 
     try:
+        gamedata["title"]  = title
         f = urllib.urlopen('http://www.allgame.com/game.php?id=' + game_id)
         page = str(f.readlines())
         game_genre = ''.join(re.findall('<a href="genre.php[^>]*>(.*?)</a>', page))

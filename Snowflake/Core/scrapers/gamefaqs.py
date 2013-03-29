@@ -53,14 +53,16 @@ def get_games_with_system(search, system):
         return results
 
 
-def get_game_datas(game_id):
+def get_game_datas(game_id, title):
     gamedata = {
+        'title': "",
         'genre': "",
         'release': "",
         'studio': "",
         'plot': ""
     }
     try:
+        gamedata["title"] = title
         f = urllib.urlopen("http://www.gamefaqs.com/" + str(game_id))
         page = f.read().replace('\r\n', '')
         game_genre = re.findall(r'</a> &raquo; <a href="(.*?)">(.*?)</a> &raquo; <a href="/', page)

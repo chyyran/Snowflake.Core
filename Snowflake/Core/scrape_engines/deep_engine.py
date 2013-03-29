@@ -17,4 +17,4 @@ def scrape_game(game_name, system, scrapers):
         searches[scraper] = game_search
         #print searches
     best_search = sutils.get_best_from_results(searches, game_name)
-    return best_search["scraper"].get_game_datas(best_search["search"]["id"]), best_search["search"]["title"]
+    return best_search["scraper"].get_game_datas(best_search["search"]["id"], best_search["search"]["title"])

@@ -75,8 +75,9 @@ def get_games_with_system(search, system):
         return results
 
 
-def get_game_datas(game_id):
+def get_game_datas(game_id, title):
     gamedata = {
+        'title': "",
         'genre': "",
         'release': "",
         'studio': "",
@@ -84,6 +85,7 @@ def get_game_datas(game_id):
     }
 
     try:
+        gamedata["title"] = title
         f = urllib.urlopen("http://thegamesdb.net/api/GetGame.php?id=" + game_id)
         page = f.read().replace('\n', '')
         game_genre = ' / '.join(re.findall('<genre>(.*?)</genre>', page))

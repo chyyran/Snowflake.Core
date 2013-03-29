@@ -75,14 +75,16 @@ def get_games_with_system(search, system):
         return results
 
 
-def get_game_datas(game_id):
+def get_game_datas(game_id, title):
     gamedata = {
+        'title': "",
         'genre': "",
         'release': "",
         'studio': "",
         'plot': ""
     }
     try:
+        gamedata["title"] = title
         f = urllib.urlopen('http://www.mobygames.com' + game_id)
         page = f.read().replace('\r\n', '').replace('\n', '')
         game_genre = re.findall('<a href="/genre/(.*?)">(.*?)</a>', page)
