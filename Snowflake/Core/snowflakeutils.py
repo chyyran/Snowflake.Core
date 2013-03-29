@@ -17,7 +17,24 @@ from scrapers import snowflakescraper as scraperbase
 from datastructures import Console
 import SystemColumns
 from datastructures import Game
+from command.command import Command
+from command import cmdstr_parser
+import re
 
+class CommandUtils:
+
+    @staticmethod
+    def get_cmd_format(input):
+        fmt = re.match(r"^.*?(?=\!)",input).group(0)
+        return fmt
+
+    @staticmethod
+    def process_cmd(cmd):
+        if CommandUtils.get_cmd_format(cmd) != "cmdstr":
+            return "Unknown Format"
+        else:
+            command = cmdstr_parser.parse(cmd)
+            return command
 
 
 class ConfigUtils:
