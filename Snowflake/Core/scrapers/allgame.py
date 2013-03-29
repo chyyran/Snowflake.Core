@@ -58,6 +58,7 @@ def get_games_with_system(game_name, system):
 
 def get_game_datas(game_id):
     gamedata = {
+        'title': "",
         'genre': "",
         'release': "",
         'studio': "",

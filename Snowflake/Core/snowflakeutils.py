@@ -18,31 +18,6 @@ from datastructures import Console
 import SystemColumns
 from datastructures import Game
 
-class DataUtils:
-
-    @staticmethod
-    def get_consoles():
-        """
-        Gets a list of consoles.
-        Corresponding JSONAPI command is
-        {
-        "Command": "GetGames"
-        "Params": []
-        }
-        :return: List of consoles
-        """
-        return None
-
-
-    @staticmethod
-    def get_games(console):
-        """
-
-
-        :param console:
-        :return:
-        """
-        return None
 
 
 class ConfigUtils:
@@ -64,6 +39,14 @@ class ConfigUtils:
                                system["extensions"],
                                system["scrapers"])
         return None
+
+    @staticmethod
+    def get_all_consoles():
+        consoles = []
+        for system in yaml.load(open(os.path.join(GeneralUtils.get_core_directory(), "systems.yml"))):
+
+            consoles.append(ConfigUtils.get_console_from_config(system["consolename"]))
+        return consoles
 
 
 class GeneralUtils:
@@ -222,9 +205,13 @@ class ScraperUtils:
         best_match = {}
         best_ratio = 0
         for scraper, game_search in game_searches.iteritems():
-            if difflib.SequenceMatcher(None, game_search["title"], game_name).ratio() > best_ratio:
-                best_ratio = difflib.SequenceMatcher(None, game_search["title"], game_name).ratio()
-                best_match = {"scraper": scraper, "search": game_search}
+            try:
+                if difflib.SequenceMatcher(None, game_search["title"], game_name).ratio() > best_ratio:
+                    best_ratio = difflib.SequenceMatcher(None, game_search["title"], game_name).ratio()
+                    best_match = {"scraper": scraper, "search": game_search}
+            except KeyError:
+                pass
+
         return best_match
 
     @staticmethod
