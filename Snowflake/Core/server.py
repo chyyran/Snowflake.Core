@@ -1,4 +1,6 @@
 #coding=utf-8
+from Snowflake.Core.utils.generalutils import GeneralUtils as gutils
+
 __author__ = 'ron975'
 """
 This file is part of Snowflake.Core
@@ -6,7 +8,6 @@ This file is part of Snowflake.Core
 
 from gevent import socket
 from gevent.server import StreamServer
-from snowflakeutils import GeneralUtils as gutils
 
 
 class SnowflakeServer():

@@ -1,10 +1,11 @@
 #coding=utf-8
+from Snowflake.Core.utils.commandutils import CommandUtils
+
 __author__ = 'ron975'
 """
 This file is part of Snowflake.Core
 """
 import json
-from Snowflake.Core.snowflakeutils import CommandUtils
 from Snowflake.Core.command import executor
 
 def run():

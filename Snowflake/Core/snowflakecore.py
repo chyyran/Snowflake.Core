@@ -1,11 +1,12 @@
 #coding=utf-8
+from Snowflake.Core.utils.generalutils import GeneralUtils as gutils
+
 __author__ = 'ron975'
 """
 This file is part of Snowflake.Core
 """
 
 import Snowflake.Core.server as serv
-from Snowflake.Core.snowflakeutils import GeneralUtils as gutils
 import handler.stdstreams as stdstrm
 
 def main():

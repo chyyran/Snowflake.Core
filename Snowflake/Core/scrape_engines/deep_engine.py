@@ -1,10 +1,10 @@
 #coding=utf-8
+from Snowflake.Core.utils.scraperutils import ScraperUtils as sutils
+
 __author__ = 'ron975'
 """
 This file is part of Snowflake.Core
 """
-
-from Snowflake.Core.snowflakeutils import ScraperUtils as sutils
 
 
 def scrape_game(game_name, system, scrapers):

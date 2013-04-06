@@ -1,4 +1,6 @@
 #coding=utf-8
+from Snowflake.Core.utils.scraperutils import ScraperUtils as sutils
+
 __author__ = 'ron975'
 """
 This file is part of Snowflake.Core
@@ -6,9 +8,7 @@ This file is part of Snowflake.Core
 
 import urllib
 import re
-import Snowflake.Core.SystemColumns as SystemColumns
-
-from Snowflake.Core.snowflakeutils import ScraperUtils as sutils
+import Snowflake.Core.systemcolumns as SystemColumns
 
 
 __scrapername__ = "TheGamesDB"
