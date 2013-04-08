@@ -10,7 +10,6 @@ __author__ = 'ron975'
 This file is part of Snowflake.Core
 """
 
-
 def get_core_directory():
     return os.path.dirname(Snowflake.Core.__file__)
 

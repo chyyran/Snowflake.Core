@@ -3,7 +3,7 @@
 from Snowflake.Core.scrape_engines import deep_engine as engine
 import json
 import Snowflake.Core.utils.configutils as configutils
-
+from Snowflake.Core.utils.generalutils import rpc_func
 __author__ = 'ron975'
 """
 This file is part of Snowflake.Core
@@ -15,6 +15,7 @@ This file is part of Snowflake.Core
 
 
 def scrape_games(gamename, console):
+    __rpcname__ = "ScrapeGames"
     if gamename is None:
         return None
     else:
@@ -23,6 +24,7 @@ def scrape_games(gamename, console):
 
 
 def get_consoles():
+    __rpcname__= "GetConsoles"
     consoles = []
     for console in configutils.get_all_consoles():
         consoles.append(console.__dict__)
