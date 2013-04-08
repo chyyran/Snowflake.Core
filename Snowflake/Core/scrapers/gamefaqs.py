@@ -1,5 +1,5 @@
 #coding=utf-8
-from Snowflake.Core.utils.scraperutils import ScraperUtils as sutils
+import Snowflake.Core.utils.scraperutils as scraperutils
 
 __author__ = 'ron975'
 """
@@ -8,7 +8,7 @@ This file is part of Snowflake.Core
 
 import urllib
 import re
-import Snowflake.Core.systemcolumns as SystemColumns
+import Snowflake.Core.systemcolumns as systemcolumns
 
 
 __scrapername__ = "GameFAQs"
@@ -28,7 +28,7 @@ def get_games_by_name(search):
             game = {}
             system = get[0].split('/')
             game["id"] = get[0].split('/')[2].split('-')[0]
-            game["title"] = sutils.format_html_codes(get[1])
+            game["title"] = scraperutils.format_html_codes(get[1])
             game["system"] = system[1].upper()
             results.append(game)
         return results
@@ -37,7 +37,7 @@ def get_games_by_name(search):
 
 
 def get_games_with_system(search, system):
-    platform = sutils.system_conversion(system, GAME_FAQS)
+    platform = scraperutils.system_conversion(system, systemcolumns.GAME_FAQS)
     results = []
     try:
         f = urllib.urlopen('http://www.gamefaqs.com/search/index.html?platform={0}&game={1}'
@@ -46,7 +46,7 @@ def get_games_with_system(search, system):
         for get in gets:
             game = {}
             game["id"] = get[0].split('/')[2].split('-')[0]
-            game["title"] = sutils.format_html_codes(get[1])
+            game["title"] = scraperutils.format_html_codes(get[1])
             game["system"] = system
             results.append(game)
         return results
@@ -78,7 +78,7 @@ def get_game_datas(game_id, title):
             gamedata["studio"] = p.sub('', game_studio[0][1])
         game_plot = re.findall(r'Description</h2></div><div class="body"><div class="details">(.*?)</div></div>', page)
         if game_plot:
-            gamedata["plot"] = sutils.format_html_codes(game_plot[0])
+            gamedata["plot"] = scraperutils.format_html_codes(game_plot[0])
         return gamedata
     except:
         return gamedata

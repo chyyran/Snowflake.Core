@@ -1,21 +1,22 @@
 #coding=utf-8
-from Snowflake.Core.utils.generalutils import GeneralUtils as gutils
-
 __author__ = 'ron975'
 """
 This file is part of Snowflake.Core
 """
 
-import Snowflake.Core.server as serv
-import handler.stdstreams as stdstrm
-
+import Snowflake.Core.utils.generalutils as generalutils
+from jsonrpclib.SimpleJSONRPCServer import SimpleJSONRPCServer
+import Snowflake.Core.snowflakeapi
 def main():
-    gutils.server_log("Snowflake Core Started at " + gutils.get_datestring())
+    generalutils.server_log("Snowflake Core Started at " + generalutils.get_datestring())
     #server = StreamServer(('', 6993), serv.handle_echo)
     #server.serve_forever()
     #handler = serv.SnowflakeServer()
-    handler = stdstrm.run()
-    #print "test"
+    server = SimpleJSONRPCServer(('localhost', 8080))
+    server.register_function(Snowflake.Core.snowflakeapi.scrape_games,'ScrapeGames')
+    server.register_function(Snowflake.Core.snowflakeapi.get_consoles,'GetConsoles')
+    server.serve_forever()
+    print "test"
 
 
 if __name__ == '__main__':

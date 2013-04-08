@@ -1,5 +1,5 @@
 #coding=utf-8
-from Snowflake.Core.utils.scraperutils import ScraperUtils as sutils
+import Snowflake.Core.utils.scraperutils as scraperutils
 
 __author__ = 'ron975'
 """
@@ -44,7 +44,7 @@ def get_games_by_name(search):
 
 
 def get_games_with_system(search, system):
-    platform = sutils.system_conversion(system, SystemColumns.THE_GAMES_DB)
+    platform = scraperutils.system_conversion(system, SystemColumns.THE_GAMES_DB)
     params = urllib.urlencode({"name": search, "platform": platform})
     results = []
     try:
@@ -66,7 +66,7 @@ def get_games_with_system(search, system):
                 game["order"] += 1
             if game["title"].lower().find(search.lower()) != -1:
                 game["order"] += 1
-            if sutils.system_conversion(item[3], SystemColumns.SYSTEM_NAME,
+            if scraperutils.system_conversion(item[3], SystemColumns.SYSTEM_NAME,
                                         SystemColumns.THE_GAMES_DB).lower() == system.lower():
                 results.append(game)
         results.sort(key=lambda result: result["order"], reverse=True)
@@ -90,16 +90,16 @@ def get_game_datas(game_id, title):
         page = f.read().replace('\n', '')
         game_genre = ' / '.join(re.findall('<genre>(.*?)</genre>', page))
         if game_genre:
-            gamedata["genre"] = sutils.format_html_codes(game_genre)
+            gamedata["genre"] = scraperutils.format_html_codes(game_genre)
         game_release = ''.join(re.findall('<ReleaseDate>(.*?)</ReleaseDate>', page))
         if game_release:
-            gamedata["release"] = sutils.format_html_codes(game_release[-4:])
+            gamedata["release"] = scraperutils.format_html_codes(game_release[-4:])
         game_studio = ''.join(re.findall('<Developer>(.*?)</Developer>', page))
         if game_studio:
-            gamedata["studio"] = sutils.format_html_codes(game_studio)
+            gamedata["studio"] = scraperutils.format_html_codes(game_studio)
         game_plot = ''.join(re.findall('<Overview>(.*?)</Overview>', page))
         if game_plot:
-            gamedata["plot"] = sutils.format_html_codes(game_plot)
+            gamedata["plot"] = scraperutils.format_html_codes(game_plot)
 
         return gamedata
     except:
