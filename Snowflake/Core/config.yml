@@ -1,1 +1,3 @@
 #Snowflake Core Configuration
+apimodules:
+  - !!python/module:Snowflake.Core.snowflakeapi ''
