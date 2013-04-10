@@ -3,6 +3,7 @@
 from Snowflake.Core.scrape_engines import deep_engine as engine
 import json
 import Snowflake.Core.utils.configutils as configutils
+import Snowflake.Core.utils.generalutils as generalutils
 __author__ = 'ron975'
 """
 This file is part of Snowflake.Core
@@ -18,6 +19,7 @@ def rpcmethod(rpcname):
 
 @rpcmethod("ScrapeGame")
 def scrape_game(gamename, console):
+    generalutils.server_log("ScrapeGames Requested  - gamename = {0} console = {1}".format(gamename,console))
     if gamename is None:
         return None
     else:
@@ -26,6 +28,7 @@ def scrape_game(gamename, console):
 
 @rpcmethod("GetConsoles")
 def get_consoles():
+    generalutils.server_log("GetConsoles Requested")
     consoles = []
     for console in configutils.get_all_consoles():
         consoles.append(console.__dict__)

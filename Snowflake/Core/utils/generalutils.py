@@ -48,7 +48,7 @@ def server_log(string):
     :rtype : object
     :param string:
     """
-    print "[Snowflake.Core] " + str(string)
+    print "[Snowflake.Core {0}] {1}".format(get_timestring(), str(string))
 
 
 def get_datestring():
@@ -57,6 +57,9 @@ def get_datestring():
     """
     return strftime("%m.%d.%Y %H:%M:%S (UTC ") + get_formatted_timezone_offset(timezone) + ")"
 
+
+def get_timestring():
+    return strftime("%H:%M:%S")
 
 
 def get_formatted_timezone_offset(timezone):
