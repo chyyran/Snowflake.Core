@@ -6,6 +6,8 @@ This file is part of Snowflake.Core
 
 
 import Snowflake.Core.utils.scraperutils as scraperutils
+
+
 def scrape_game(game_name, system, scrapers):
 
     searches = {}
