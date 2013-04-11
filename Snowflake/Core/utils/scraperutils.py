@@ -42,14 +42,14 @@ def __json_to_sqlite():
         con = sqlite3.connect(os.path.join(generalutils.get_core_directory(),"assets","systems.db"))
         cur = con.cursor()
         for datum in data:
-            query = str("INSERT INTO systems VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')").format(str(
-                datum["SystemName"]).replace('\'', '\'\''),
-                datum["ShortName"],
-                datum["GameFAQs"],
-                datum["GameFAQs_URL"],
-                datum["MobyGames"],
-                datum["TheGamesDB"],
-                datum["GiantBomb"])
+            query = str("INSERT INTO systems VALUES(\
+                        '{SystemName}',\
+                        '{ShortName}',\
+                        '{GameFAQs}',\
+                        '{GameFAQs_URL}',\
+                        '{MobyGames}',\
+                        '{TheGamesDB}',\
+                        '{GiantBomb}')").format(**datum).replace('\'', '\'\'')
             cur.execute(query)
             print "Executed " + query
         con.commit()
