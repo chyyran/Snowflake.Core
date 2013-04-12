@@ -8,7 +8,11 @@ import os
 import Snowflake.Core.utils.generalutils as generalutils
 
 def create_games_database():
-    #CREATE TABLE games (id INTEGER PRIMARY KEY, game_name TEXT, description TEXT, release_year TEXT, rom_path TEXT, publisher TEXT, cover_url TEXT, console_name TEXT, fanart_url TEXT, fanart_path TEXT, cover_path TEXT);
+    """
+
+    Creates games database if not there
+    :return:
+    """
     try:
         dbpath = os.path.join(generalutils.get_core_directory(), "assets", "games.db")
         con = sqlite3.connect(dbpath)
@@ -33,6 +37,12 @@ def create_games_database():
 
 
 def insert_game(game):
+
+    """
+    Adds a game to the database
+    :param game:
+    :return:
+    """
     try:
         dbpath = os.path.join(generalutils.get_core_directory(), "assets", "games.db")
         con = sqlite3.connect(dbpath)
