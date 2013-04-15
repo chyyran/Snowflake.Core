@@ -64,3 +64,26 @@ def insert_game(game):
     except sqlite3.Error, e:
         generalutils.server_log("Failed to insert game: " + e.args[0])
         return False
+
+def delete_game_by_id(gameid):
+    pass
+
+
+def delete_game_by_game(gameobj):
+    pass
+
+
+def get_game_by_name(name,system):
+    pass
+
+
+def get_game_by_uid(id):
+    pass
+
+
+def get_games_from_system(system):
+    pass
+
+
+def delete_system(system):
+    pass
