@@ -35,8 +35,8 @@ def scrape_game(gamename, console):
     if gamename is None:
         return None
     else:
-        return engine.scrape_game(gamename,console,
-                configutils.get_console_from_config(console).scrapers)
+        return engine.scrape_game(gamename, console,
+                                  configutils.get_console_from_config(console).scrapers)
 
 
 @rpcmethod("GetConsoles")

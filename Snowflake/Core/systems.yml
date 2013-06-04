@@ -1,8 +1,8 @@
--   consolename: "Super Nintendo Entertainment System"
+-   fullname: "Super Nintendo Entertainment System"
     shortname: "SNES"
-    table: "SNES"
+    id: "SNES"
     run: "C:\\Program Files\\SNES9x\\SNES9x.exe \"%rom%\" [-config \"%config%\"]"
-    imagepath: "C:\\Assets\\Image\\SNES.png\\"
+    mediapath: "C:\\Assets\\Image\\SNES.png\\"
     rompaths:
         - "C:\\Roms\\SNES\\"
     extensions:
@@ -14,11 +14,11 @@
         - "allgame"
         - "mobygames"
 
--   consolename: "Nintendo Entertainment System"
+-   fullname: "Nintendo Entertainment System"
     shortname: "NES"
-    table: "NES"
+    id: "NES"
     run: "C:\\Program Files\\FCEUX\\FCEUX.exe \"%rom%\" [-config \"%config%\"]"
-    imagepath: "C:\\Assets\\Image\\NES.png\\"
+    mediapath: "C:\\Assets\\Image\\NES.png\\"
     rompaths:
         - "C:\\Roms\\NES\\"
     extensions:

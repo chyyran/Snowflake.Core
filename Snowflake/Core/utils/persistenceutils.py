@@ -5,6 +5,7 @@ This file is part of Snowflake.Core
 """
 import sqlite3
 import os
+import uuid
 import Snowflake.Core.utils.generalutils as generalutils
 
 def create_games_database():
@@ -18,7 +19,7 @@ def create_games_database():
         con = sqlite3.connect(dbpath)
         cur = con.cursor()
         cur.execute("CREATE TABLE games (\
-                    id INTEGER PRIMARY KEY,\
+                    id TEXT,\
                     game_name TEXT,\
                     description TEXT,\
                     release_year TEXT, \
@@ -26,6 +27,8 @@ def create_games_database():
                     publisher TEXT, \
                     cover_url TEXT, \
                     console_name TEXT, \
+                    console_shortname TEXT,\
+                    console_id TEXT,\
                     fanart_url TEXT, \
                     fanart_path TEXT, \
                     cover_path TEXT)")
@@ -48,7 +51,7 @@ def insert_game(game):
         con = sqlite3.connect(dbpath)
         cur = con.cursor()
         cur.execute('INSERT INTO games VALUES(\
-                    NULL,\
+                    "{uuid}",\
                     "{game_name}",\
                     "{description}",\
                     "{release_year}",\
@@ -56,6 +59,8 @@ def insert_game(game):
                     "{publisher}",\
                     "{cover_url}",\
                     "{console_name}",\
+                    "{console_shortname}",\
+                    "{console_id}",\
                     "{fanart_url}",\
                     "{fanart_path}",\
                     "{cover_path}")'.format(**game.__dict__).replace('\'', '\'\''))

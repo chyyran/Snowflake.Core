@@ -23,9 +23,9 @@ class SnowflakeRPC:
         for server in self.servers:
             server.register_introspection_functions()
             for function in getmembers(snowflakeapi):
-                 if isfunction(function[1]):
-                     if hasattr(function[1],"__rpcname__"):
-                          server.register_function(function[1],function[1].__rpcname__)
+                if isfunction(function[1]):
+                    if hasattr(function[1], "__rpcname__"):
+                        server.register_function(function[1],function[1].__rpcname__)
 
     def start(self):
         self.threads.append(Thread(target=self.servers[0].serve_forever))
