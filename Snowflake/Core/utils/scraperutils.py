@@ -39,10 +39,11 @@ def __json_to_sqlite():
     data = json.load(jsonfile)
     con = None
     try:
-        con = sqlite3.connect(os.path.join(generalutils.get_core_directory(),"assets","systems.db"))
+        con = sqlite3.connect(os.path.join(generalutils.get_core_directory(),"assets","systems.dbx"))
         cur = con.cursor()
         for datum in data:
             query = str("INSERT INTO systems VALUES(\
+                        '{SnowflakeID}',\
                         '{SystemName}',\
                         '{ShortName}',\
                         '{GameFAQs}',\
@@ -67,7 +68,7 @@ def system_conversion(system_id, scraper_site, search_column=systemcolumns.SYSTE
     :param search_column: Column to search for. Currently, only GameSysColumn.SYSTEM_NAME, works.
     :rtype : str
     """
-    dbpath = os.path.join(generalutils.get_core_directory(), "assets", "systems.db")
+    dbpath = os.path.join(generalutils.get_core_directory(), "assets", "systems.dbx")
     con = sqlite3.connect(dbpath)
     cur = con.cursor()
     cur.execute("SELECT {0} FROM systems WHERE {1} = '{2}'".format(scraper_site, search_column, system_id))
