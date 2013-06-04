@@ -8,10 +8,9 @@ import shortuuid
 import json
 
 class Console():
-    def __init__(self, fullname, shortname, id, run, mediapath, rompaths, extensions, scrapers):
+    def __init__(self, fullname, shortname,run, mediapath, rompaths, extensions, scrapers):
         self.fullname = fullname
         self.shortname = shortname
-        self.id = id
         self.run = run
         self.mediapath = mediapath
         self.rompaths = rompaths
@@ -20,10 +19,10 @@ class Console():
 
 
 class Game():
-    def __init__(self, title, console_id, rom_path, media_path, description, **metadata):
+    def __init__(self, title, console_name, rom_path, media_path, description, **metadata):
         self.uuid = str(shortuuid.uuid())
         self.title = title
-        self.console_id = console_id
+        self.console_name = console_name
         self.rom_path = rom_path
         self.media_path = media_path
         self.description = description
