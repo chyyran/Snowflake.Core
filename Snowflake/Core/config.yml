@@ -1,4 +1,0 @@
-#Snowflake Core Configuration
-apimodules:
-  - !!python/module:Snowflake.Core.snowflakeapi ''
-mediaroot: 'C:\Snowflake\Media'

@@ -1,0 +1,9 @@
+Client - ConsolesRequest > Core
+Client < Console - Core
+Client - Games(Console) > Core
+Client - LaunchGame(Game) > Core
+
+Client - ScrapGame > Core
+Client - SaveGame(ScrapeGameDatas) > Core
+
+
