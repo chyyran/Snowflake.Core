@@ -5,7 +5,7 @@ This file is part of Snowflake.Core
 """
 import sqlite3
 import os
-import uuid
+import json
 import Snowflake.Core.utils.generalutils as generalutils
 
 def create_games_database():
@@ -20,18 +20,11 @@ def create_games_database():
         cur = con.cursor()
         cur.execute("CREATE TABLE games (\
                     id TEXT,\
-                    game_name TEXT,\
-                    description TEXT,\
-                    release_year TEXT, \
-                    rom_path TEXT, \
-                    publisher TEXT, \
-                    cover_url TEXT, \
-                    console_name TEXT, \
-                    console_shortname TEXT,\
-                    console_id TEXT,\
-                    fanart_url TEXT, \
-                    fanart_path TEXT, \
-                    cover_path TEXT)")
+                    gamename TEXT,\
+                    systemid TEXT,\
+                    rompath TEXT,\
+                    mediapath TEXT,\
+                    metadata TEXT")
         con.commit()
         return True
     except sqlite3.Error, e:
@@ -50,20 +43,8 @@ def insert_game(game):
         dbpath = os.path.join(generalutils.get_core_directory(), "assets", "games.db")
         con = sqlite3.connect(dbpath)
         cur = con.cursor()
-        cur.execute('INSERT INTO games VALUES(\
-                    "{uuid}",\
-                    "{game_name}",\
-                    "{description}",\
-                    "{release_year}",\
-                    "{rom_path}",\
-                    "{publisher}",\
-                    "{cover_url}",\
-                    "{console_name}",\
-                    "{console_shortname}",\
-                    "{console_id}",\
-                    "{fanart_url}",\
-                    "{fanart_path}",\
-                    "{cover_path}")'.format(**game.__dict__).replace('\'', '\'\''))
+        cur.execute('INSERT INTO games VALUES({uuid},{game_name},{system_id},{rom_path},{media_path},'
+                    .format(**game.__dict__).replace('\'', '\'\'') + json.dumps(game.metadata) + ")")
         con.commit()
         return True
     except sqlite3.Error, e:

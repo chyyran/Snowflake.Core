@@ -27,6 +27,7 @@ def get_console_by_id(id):
             return Console(**system)
     return None
 
+
 def get_all_consoles():
     consoles = []
     for system in yaml.load(open(os.path.join(generalutils.get_core_directory(), "systems.yml"))):

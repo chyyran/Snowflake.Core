@@ -4,10 +4,11 @@ __author__ = 'ron975'
 This file is part of Snowflake.Core
 """
 
+#todo get rid of this. use the new .yml identifiers.
+
 GAME_FAQS = "GameFAQs"
 THE_GAMES_DB = "TheGamesDB"
 MOBY_GAMES = "MobyGames"
 SYSTEM_NAME = "SystemName"
 SHORT_NAME = "ShortName"
-GAME_FAQS_URL = "GameFAQs_URL"
 GIANT_BOMB = "GiantBomb"

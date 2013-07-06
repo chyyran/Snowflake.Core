@@ -21,7 +21,7 @@ def get_scrapers_directory():
 
 def get_scraper(scrapername):
     scraper = imp.load_source('snowflake.{0}'.format(scrapername),
-                              os.path.join(get_scrapers_directory(), scrapername.lower() + ".py"))
+                              os.path.join(get_scrapers_directory(), scrapername.lower(), scrapername.lower() + ".py"))
 
     if scraper.__scrapername__.lower() != scrapername.lower():
         return scraperbase

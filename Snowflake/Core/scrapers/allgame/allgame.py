@@ -5,15 +5,15 @@ __author__ = 'ron975'
 """
 This file is part of Snowflake.Core
 """
-import urllib
-import re
-
+import urllib, re, yaml, os
 
 __scrapername__ = "AllGame"
 __scraperauthor__ = ["Angelscry", "ron975"]
 __scrapersite__ = "www.allgame.com"
 __scraperdesc__ = "Scrapes ROM information from AllGame"
 __scraperfanarts__ = False
+__scraperpath__ = os.path.dirname(os.path.realpath(__file__))
+__scrapermap__ = yaml.load(open(os.path.join(__scraperpath__,"allgame.yml")))
 
 
 def get_games_by_name(search):
@@ -39,6 +39,7 @@ def get_games_by_name(search):
 
 
 def get_games_with_system(game_name, system):
+    scraper_sysid = __scrapermap__[system]
     params = urllib.urlencode({'sql': game_name, 'opt1': 81})
     results = []
     try:
@@ -50,7 +51,7 @@ def get_games_with_system(game_name, system):
                 game["title"] = scraperutils.format_html_codes(''.join(re.findall('<a[^>]*>(.*?)</a>', line)))
             if '"platform.php?id=' in line:
                 game["system"] = ''.join(re.findall('<a[^>]*>(.*?)</a>', line))
-                if game["system"].lower() == system.lower():
+                if game["system"].lower() == scraper_sysid.lower():
                     results.append(game)
         return results
     except:
