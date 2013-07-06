@@ -5,4 +5,4 @@ Snowflake.Core is a system that acts as a backend for emulator frontends. Snowfl
 
 Architecture
 ============
-Snowflake uses a client-server model. Snowflake runs as a local server and frontends can connect to this instance to obtain data to display to the end user. This way, many frontends can have a standardized way of accessing this data, making interoperability extremely easy. 
+Snowflake uses a client-server model. Snowflake runs as a local server and frontends can connect to this instance to obtain data to display to the end user. This way, many frontends can have a standardized way of accessing this data, making interoperability extremely easy.
