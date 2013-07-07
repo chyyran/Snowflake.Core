@@ -3,14 +3,16 @@ import mimetypes
 import os
 from time import strftime, timezone
 import urllib
+import snowflake
 
 __author__ = 'ron975'
 """
 This file is part of Snowflake.snowflake
 """
 
+
 def get_core_directory():
-    return os.path.dirname(Core.__file__)
+    return os.path.dirname(snowflake.__file__)
 
 
 def download_file(url, directory, filename, extension=None):
@@ -47,7 +49,7 @@ def server_log(string):
     :rtype : object
     :param string:
     """
-    print "[Snowflake.snowflake {0}] {1}".format(get_timestring(), str(string))
+    print "[Snowflake.Core {0}] {1}".format(get_timestring(), str(string))
 
 
 def get_datestring():

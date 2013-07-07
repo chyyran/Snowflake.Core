@@ -5,6 +5,7 @@ import json
 import os
 import sqlite3
 from snowflake import systemcolumns
+import snowflake.scrapers.scraperbase as scraperbase
 import snowflake.utils.generalutils as generalutils
 
 __author__ = 'ron975'

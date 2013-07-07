@@ -1,5 +1,5 @@
 #coding=utf-8
-from snowflake import snowflakeapi
+from snowflake import api
 
 __author__ = 'ron975'
 """
@@ -23,7 +23,7 @@ class SnowflakeRPC:
 
         for server in self.servers:
             server.register_introspection_functions()
-            for function in getmembers(snowflakeapi):
+            for function in getmembers(api):
                 if isfunction(function[1]):
                     if hasattr(function[1], "__rpcname__"):
                         server.register_function(function[1],function[1].__rpcname__)

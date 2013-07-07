@@ -18,13 +18,8 @@ def create_games_database():
         dbpath = os.path.join(generalutils.get_core_directory(), "games.db")
         con = sqlite3.connect(dbpath)
         cur = con.cursor()
-        cur.execute("CREATE TABLE games (\
-                    id TEXT,\
-                    gamename TEXT,\
-                    systemid TEXT,\
-                    rompath TEXT,\
-                    mediapath TEXT,\
-                    metadata TEXT")
+        cur.execute("CREATE TABLE games \
+            (id TEXT, gamename TEXT, systemid TEXT, rompath TEXT, mediapath TEXT, metadata TEXT)")
         con.commit()
         return True
     except sqlite3.Error, e:
@@ -43,8 +38,15 @@ def insert_game(game):
         dbpath = os.path.join(generalutils.get_core_directory(), "assets", "games.db")
         con = sqlite3.connect(dbpath)
         cur = con.cursor()
-        cur.execute('INSERT INTO games VALUES({uuid},{game_name},{system_id},{rom_path},{media_path},'
-                    .format(**game.__dict__).replace('\'', '\'\'') + json.dumps(game.metadata) + ")")
+        #PEP8 tells us to use ''.join, as well, ''.join is faster for long strings.
+        #I have no idea how much metadata would be
+        cur.execute(''.join([
+            'INSERT INTO games VALUES("{uuid}","{game_name}","{system_id}","{rom_path}","{media_path}"'
+            .format(**game.__dict__).replace("'", "''"),
+            ',"',
+            json.dumps(game.metadata).replace('"', '""'), '")'
+        ]))
+
         con.commit()
         return True
     except sqlite3.Error, e:
