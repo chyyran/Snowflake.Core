@@ -7,7 +7,7 @@ import sqlite3
 import os
 import json
 from snowflake.utils import generalutils
-from snowflake.datastructures import Game
+from snowflake.types import Game
 #Games Database
 games_db = sqlite3.connect(os.path.join(generalutils.get_core_directory(), "assets", "games.db"))
 
@@ -71,7 +71,6 @@ def get_games_from_system(system):
         cur = games_db.cursor()
         cur.execute('SELECT * FROM games WHERE systemid="{0}"'.format(system))
 
-        #todo Test this. Too tired tonight :/
         for result in cur.fetchall():
             uuid, gamename, systemid, rompath, mediapath, metadata = result
             games.append(Game(uuid, gamename, systemid, rompath, mediapath, **json.loads(metadata)))

@@ -1,14 +1,12 @@
 #coding=utf-8
 import os
 import yaml
-from snowflake.datastructures import Console
+from snowflake.types import Console
 from snowflake.utils import generalutils
 __author__ = 'ron975'
 """
 This file is part of Snowflake.snowflake
 """
-
-
 
 def get_config():
     return yaml.load(open(os.path.join(generalutils.get_core_directory(), "config.yml")))

@@ -5,7 +5,7 @@ This file is part of Snowflake.snowflake
 """
 
 import shortuuid
-import json
+
 
 class Console():
     def __init__(self, fullname, short_name,run, rom_paths, extensions, scrapers):
@@ -31,10 +31,7 @@ class Game():
         self.rompath = rompath
         self.mediapath = mediapath
         self.metadata = metadata
-        self.json = json.dumps(metadata)
 
-    def get_metadata(self, metadata_type):
-        return self.metadata[metadata_type]
 
 
 
