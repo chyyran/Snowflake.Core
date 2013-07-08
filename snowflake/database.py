@@ -66,16 +66,20 @@ def get_game_by_uid(id):
 
 
 def get_games_from_system(system):
+    games = []
     try:
         cur = games_db.cursor()
         cur.execute('SELECT * FROM games WHERE systemid="{0}"'.format(system))
 
-        uuid, gamename, systemid, rompath, mediapath, metadata  = cur.fetchone()
-        return Game(uuid,gamename,systemid,rompath,mediapath,**json.loads(metadata))
+        #todo Test this. Too tired tonight :/
+        for result in cur.fetchall():
+            uuid, gamename, systemid, rompath, mediapath, metadata = result
+            games.append(Game(uuid, gamename, systemid, rompath, mediapath, **json.loads(metadata)))
+
     except sqlite3.Error, e:
         generalutils.server_log("SQL Error Encountered, Could not search for games")
 
-
+    return games
 
 def delete_system(system):
     pass

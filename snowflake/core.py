@@ -6,7 +6,7 @@ This file is part of Snowflake.snowflake
 
 import snowflake.utils.generalutils as generalutils
 
-from snowflake.snowflakerpc import SnowflakeRPC
+from snowflake.rpcservers import SnowflakeRPC
 
 
 def main():

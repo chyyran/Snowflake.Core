@@ -9,6 +9,7 @@ This file is part of Snowflake.snowflake
 """
 
 
+
 def get_config():
     return yaml.load(open(os.path.join(generalutils.get_core_directory(), "config.yml")))
 
