@@ -5,9 +5,8 @@ import json
 import os
 import sqlite3
 from snowflake import systemcolumns
-import snowflake.scrapers.scraperbase as scraperbase
-import snowflake.utils.generalutils as generalutils
-
+from snowflake.scrapers import scraperbase
+from snowflake.utils import generalutils
 __author__ = 'ron975'
 """
 This file is part of Snowflake.snowflake
@@ -29,42 +28,12 @@ def get_scraper(scrapername):
         return scraper
 
 
-def __json_to_sqlite():
-    """
-    Converts the json to an sqlite database.
-    Only present in code for demonstration. Do not invoke this method.
-    JSON was produced from the original CSV by use of a header line deduced manually and an online converter
-    """
-    jsonfile = open(os.path.join(generalutils.get_core_directory(), "assets", "systems.json"))
-    data = json.load(jsonfile)
-    con = None
-    try:
-        con = sqlite3.connect(os.path.join(generalutils.get_core_directory(),"assets","systems.dbx"))
-        cur = con.cursor()
-        for datum in data:
-            query = str("INSERT INTO systems VALUES(\
-                        '{SnowflakeID}',\
-                        '{SystemName}',\
-                        '{ShortName}',\
-                        '{GameFAQs}',\
-                        '{GameFAQs_URL}',\
-                        '{MobyGames}',\
-                        '{TheGamesDB}',\
-                        '{GiantBomb}')").format(**datum).replace('\'', '\'\'')
-            cur.execute(query)
-            print "Executed " + query
-        con.commit()
-        print "Commited SQL"
-    except sqlite3.Error, e:
-        print "Failed to insert JSON into Database: " + e.args[0]
-
-
 def system_conversion(system_id, scraper_site, search_column=systemcolumns.SYSTEM_NAME):
     """
     Replaces _system_conversion in Angelscry's unmodified scrapers.
     Uses a SQLite3 database rather than the default CSV for speed and constancy
     :param system_id: Search string, for example "Nintendo Entertainment System". For reference, check systems.json
-    :param scraper_site: Scraper column, recommended to use a GameSysColumn constant, eg SystemColumns.GAME_FAQS
+    :param scraper_site: Scraper column, recommended to use a GameSysColumn constant, eg systemcolumns.GAME_FAQS
     :param search_column: Column to search for. Currently, only GameSysColumn.SYSTEM_NAME, works.
     :rtype : str
     """

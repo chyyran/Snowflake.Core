@@ -1,5 +1,4 @@
 #coding=utf-8
-from snowflake import api
 
 __author__ = 'ron975'
 """
@@ -8,7 +7,7 @@ This file is part of Snowflake.snowflake
 from threading import Thread
 from SimpleXMLRPCServer import SimpleXMLRPCServer
 from jsonrpclib.SimpleJSONRPCServer import SimpleJSONRPCServer
-
+from snowflake import rpcmethods
 
 from inspect import getmembers, isfunction
 
@@ -23,7 +22,8 @@ class SnowflakeRPC:
 
         for server in self.servers:
             server.register_introspection_functions()
-            for function in getmembers(api):
+            #todo Make this dynamic, with config
+            for function in getmembers(rpcmethods):
                 if isfunction(function[1]):
                     if hasattr(function[1], "__rpcname__"):
                         server.register_function(function[1],function[1].__rpcname__)

@@ -1,5 +1,4 @@
 #coding=utf-8
-import snowflake.utils.scraperutils as scraperutils
 
 __author__ = 'ron975'
 """
@@ -7,7 +6,8 @@ This file is part of Snowflake.snowflake
 """
 import urllib
 import re
-import snowflake.systemcolumns as SystemColumns
+from snowflake import systemcolumns
+from snowflake.utils import scraperutils
 
 __scrapername__ = "MobyGames"
 __scraperauthor__ = ["Angelscry", "ron975"]
@@ -46,7 +46,7 @@ def get_games_by_name(search):
 
 
 def get_games_with_system(search, system):
-    platform = scraperutils.system_conversion(system, SystemColumns.MOBY_GAMES, SystemColumns.SYSTEM_NAME)
+    platform = scraperutils.system_conversion(system, systemcolumns.MOBY_GAMES, systemcolumns.SYSTEM_NAME)
     results = []
     try:
         f = urllib.urlopen('http://www.mobygames.com/search/quick?q=' + search.replace(' ',

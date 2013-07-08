@@ -6,51 +6,47 @@ This file is part of Snowflake.snowflake
 import sqlite3
 import os
 import json
-import snowflake.utils.generalutils as generalutils
+from snowflake.utils import generalutils
+from snowflake.datastructures import Game
+#Games Database
+games_db = sqlite3.connect(os.path.join(generalutils.get_core_directory(), "assets", "games.db"))
+
 
 def create_games_database():
     """
-
     Creates games database if not there
     :return:
     """
     try:
-        dbpath = os.path.join(generalutils.get_core_directory(), "games.db")
-        con = sqlite3.connect(dbpath)
-        cur = con.cursor()
-        cur.execute("CREATE TABLE games \
-            (id TEXT, gamename TEXT, systemid TEXT, rompath TEXT, mediapath TEXT, metadata TEXT)")
-        con.commit()
+        games_db.cursor().execute("CREATE TABLE games "
+                                  "(uuid TEXT, gamename TEXT, systemid TEXT, rompath TEXT, mediapath TEXT, metadata TEXT)")
+        games_db.commit()
         return True
     except sqlite3.Error, e:
-        generalutils.server_log("Failed to create games database: " + e.args[0])
+        generalutils.server_log("SQL Error Encountered, Unable to Create Database:", e.args[0])
         return False
 
 
 def insert_game(game):
-
     """
     Adds a game to the database
     :param game:
     :return:
     """
+
     try:
-        dbpath = os.path.join(generalutils.get_core_directory(), "assets", "games.db")
-        con = sqlite3.connect(dbpath)
-        cur = con.cursor()
-        #PEP8 tells us to use ''.join, as well, ''.join is faster for long strings.
-        #I have no idea how much metadata would be
-        cur.execute(''.join([
-            'INSERT INTO games VALUES("{uuid}","{game_name}","{system_id}","{rom_path}","{media_path}"'
+        #Because we don't know how much metadata there will be, we use ''.join() for efficiency
+        games_db.cursor().execute(''.join([
+            'INSERT INTO games VALUES("{uuid}","{gamename}","{systemid}","{rompath}","{mediapath}","'
             .format(**game.__dict__).replace("'", "''"),
-            ',"',
             json.dumps(game.metadata).replace('"', '""'), '")'
         ]))
 
-        con.commit()
+        games_db.commit()
+        generalutils.server_log("Inserted Game '{gamename}' ({rompath}) with uuid {uuid}".format(**game.__dict__))
         return True
     except sqlite3.Error, e:
-        generalutils.server_log("Failed to insert game: " + e.args[0])
+        generalutils.server_log("SQL Error Encountered, Unable to Insert Game:", e.args[0])
         return False
 
 def delete_game_by_id(gameid):
@@ -61,7 +57,7 @@ def delete_game_by_game(gameobj):
     pass
 
 
-def get_game_by_name(name,system):
+def get_game_by_name(name, system):
     pass
 
 
@@ -70,7 +66,15 @@ def get_game_by_uid(id):
 
 
 def get_games_from_system(system):
-    pass
+    try:
+        cur = games_db.cursor()
+        cur.execute('SELECT * FROM games WHERE systemid="{0}"'.format(system))
+
+        uuid, gamename, systemid, rompath, mediapath, metadata  = cur.fetchone()
+        return Game(uuid,gamename,systemid,rompath,mediapath,**json.loads(metadata))
+    except sqlite3.Error, e:
+        generalutils.server_log("SQL Error Encountered, Could not search for games")
+
 
 
 def delete_system(system):

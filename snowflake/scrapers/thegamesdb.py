@@ -1,6 +1,4 @@
 #coding=utf-8
-import snowflake.utils.scraperutils as scraperutils
-
 __author__ = 'ron975'
 """
 This file is part of Snowflake.snowflake
@@ -8,7 +6,8 @@ This file is part of Snowflake.snowflake
 
 import urllib
 import re
-import snowflake.systemcolumns as SystemColumns
+from snowflake import systemcolumns
+from snowflake.utils import scraperutils
 
 
 __scrapername__ = "TheGamesDB"
@@ -44,7 +43,7 @@ def get_games_by_name(search):
 
 
 def get_games_with_system(search, system):
-    platform = scraperutils.system_conversion(system, SystemColumns.THE_GAMES_DB)
+    platform = scraperutils.system_conversion(system, systemcolumns.THE_GAMES_DB)
     params = urllib.urlencode({"name": search, "platform": platform})
     results = []
     try:
@@ -66,8 +65,8 @@ def get_games_with_system(search, system):
                 game["order"] += 1
             if game["title"].lower().find(search.lower()) != -1:
                 game["order"] += 1
-            if scraperutils.system_conversion(item[3], SystemColumns.SYSTEM_NAME,
-                                        SystemColumns.THE_GAMES_DB).lower() == system.lower():
+            if scraperutils.system_conversion(item[3], systemcolumns.SYSTEM_NAME,
+                                        systemcolumns.THE_GAMES_DB).lower() == system.lower():
                 results.append(game)
         results.sort(key=lambda result: result["order"], reverse=True)
         return results

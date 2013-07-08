@@ -1,6 +1,4 @@
 #coding=utf-8
-import snowflake.utils.scraperutils as scraperutils
-
 __author__ = 'ron975'
 """
 This file is part of Snowflake.snowflake
@@ -8,8 +6,8 @@ This file is part of Snowflake.snowflake
 
 import urllib
 import re
-import snowflake.systemcolumns as systemcolumns
-
+from snowflake import systemcolumns
+from snowflake.utils import scraperutils
 
 __scrapername__ = "GameFAQs"
 __scraperauthor__ = ["Angelscry", "ron975"]

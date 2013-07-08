@@ -43,13 +43,13 @@ def get_extension_from_url(url):
     return extension
 
 
-def server_log(string):
+def server_log(*string):
     """
     Logs string to stdout
     :rtype : object
     :param string:
     """
-    print "[Snowflake.Core {0}] {1}".format(get_timestring(), str(string))
+    print "[Snowflake.Core {0}]".format(get_timestring()), ' '.join(string)
 
 
 def get_datestring():

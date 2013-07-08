@@ -2,8 +2,7 @@
 import os
 import yaml
 from snowflake.datastructures import Console
-import snowflake.utils.generalutils as generalutils
-
+from snowflake.utils import generalutils
 __author__ = 'ron975'
 """
 This file is part of Snowflake.snowflake

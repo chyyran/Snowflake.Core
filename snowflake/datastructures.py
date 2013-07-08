@@ -21,12 +21,15 @@ class Console():
 
 
 class Game():
-    def __init__(self, game_name, system_id, rom_path, media_path, **metadata):
-        self.uuid = str(shortuuid.uuid())
-        self.game_name = game_name
-        self.system_id = system_id
-        self.rom_path = rom_path
-        self.media_path = media_path
+    def __init__(self, uuid, gamename, systemid, rompath, mediapath, **metadata):
+        if uuid is "":
+            self.uuid = shortuuid.uuid()
+        else:
+            self.uuid = uuid
+        self.gamename = gamename
+        self.systemid = systemid
+        self.rompath = rompath
+        self.mediapath = mediapath
         self.metadata = metadata
         self.json = json.dumps(metadata)
 

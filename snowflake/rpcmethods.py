@@ -1,11 +1,7 @@
 #coding=utf-8
 
-import snowflake.utils.generalutils as generalutils
-
+from snowflake.utils import generalutils, configutils
 from snowflake.scrape_engines import deep_engine as engine
-
-import snowflake.utils.configutils as configutils
-
 
 __author__ = 'ron975'
 """
