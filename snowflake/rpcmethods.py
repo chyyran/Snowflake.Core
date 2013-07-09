@@ -37,7 +37,6 @@ def scrape_game(gamename, console):
         return engine.scrape_game(gamename, console,
                                   configutils.get_console_from_config(console).scrapers)
 
-
 @rpcmethod("GetConsoles")
 def get_consoles():
     """

@@ -3,6 +3,9 @@
 .idea
 .iml
 *.py[cod]
+snowflaketest.py
+games.db
+
 
 # C extensions
 *.so
