@@ -2,7 +2,7 @@
 
 __author__ = 'ron975'
 """
-This file is part of Snowflake.snowflake
+This file is part of Snowflake.Core
 """
 from threading import Thread
 from SimpleXMLRPCServer import SimpleXMLRPCServer

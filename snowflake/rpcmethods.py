@@ -5,7 +5,7 @@ from snowflake.scrape_engines import deep_engine as engine
 
 __author__ = 'ron975'
 """
-This file is part of Snowflake.snowflake
+This file is part of Snowflake.Core
 """
 
 

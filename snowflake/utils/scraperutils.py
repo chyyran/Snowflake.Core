@@ -9,7 +9,7 @@ from snowflake.scrapers import scraperbase
 from snowflake.utils import generalutils
 __author__ = 'ron975'
 """
-This file is part of Snowflake.snowflake
+This file is part of Snowflake.Core
 """
 
 

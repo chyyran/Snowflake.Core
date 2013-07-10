@@ -3,7 +3,7 @@ import snowflake.utils.scraperutils as scraperutils
 
 __author__ = 'ron975'
 """
-This file is part of Snowflake.snowflake
+This file is part of Snowflake.Core
 """
 import urllib, re, yaml, os
 

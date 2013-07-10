@@ -5,7 +5,7 @@ from snowflake.types import Console
 from snowflake.utils import generalutils
 __author__ = 'ron975'
 """
-This file is part of Snowflake.snowflake
+This file is part of Snowflake.Core
 """
 
 def get_config():
