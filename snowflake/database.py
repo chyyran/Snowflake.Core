@@ -66,7 +66,8 @@ def search_game_by_name(name, system):
     #todo Test this
     try:
         cur = games_db.cursor()
-        cur.execute('SELECT * FROM games WHERE systemid="{0}" AND gamename LIKE "{1}"'.format(system,name))
+        cur.execute('SELECT * FROM games WHERE systemid="{0}" AND gamename LIKE "%{1}%"'
+                    .format(system, name.replace('"', '""', "'", "''")))
 
         for result in cur.fetchall():
             uuid, gamename, systemid, rompath, mediapath, metadata = result
