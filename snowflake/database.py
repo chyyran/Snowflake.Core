@@ -80,7 +80,16 @@ def search_game_by_name(name, system):
 
 
 def get_game_by_uid(id):
-    pass
+    #todo Test this
+    try:
+        cur = games_db.cursor()
+        cur.execute('SELECT * FROM games WHERE uuid="{0}"'.format(id))
+        uuid, gamename, systemid, rompath, mediapath, metadata = cur.fetchone()
+        return Game(uuid, gamename, systemid, rompath, mediapath, **json.loads(metadata))
+
+    except sqlite3.Error, e:
+        generalutils.server_log("SQL Error Encountered, Could not search for games")
+        return None
 
 
 def get_games_from_system(system):
