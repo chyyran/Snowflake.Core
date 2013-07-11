@@ -1,8 +1,8 @@
 -   fullname: "Super Nintendo Entertainment System"
     shortname: "SNES"
-    id: "SNES"
+    systemid: "SUPER_NINTENDO_ENTERTAINMENT_SYSTEM"
     run: "C:\\Program Files\\SNES9x\\SNES9x.exe \"%rom%\" [-config \"%config%\"]"
-    mediapath: "C:\\Assets\\Image\\SNES.png\\"
+    mediapath: "C:\\Media\\SNES\\"
     rompaths:
         - "C:\\Roms\\SNES\\"
     extensions:
@@ -16,7 +16,7 @@
 
 -   fullname: "Nintendo Entertainment System"
     shortname: "NES"
-    id: "NES"
+    systemid: "NINTENDO_ENTERTAINMENT_SYSTEM"
     run: "C:\\Program Files\\FCEUX\\FCEUX.exe \"%rom%\" [-config \"%config%\"]"
     mediapath: "C:\\Assets\\Image\\NES.png\\"
     rompaths:

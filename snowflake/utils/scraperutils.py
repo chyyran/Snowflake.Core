@@ -13,7 +13,6 @@ This file is part of Snowflake.Core
 """
 
 
-    
 def get_scrapers_directory():
     return os.path.dirname(os.path.realpath(scraperbase.__file__))
 

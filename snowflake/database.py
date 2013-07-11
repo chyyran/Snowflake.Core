@@ -19,7 +19,7 @@ def create_games_database():
     """
     try:
         games_db.cursor().execute("CREATE TABLE games "
-                                  "(uuid TEXT, gamename TEXT, systemid TEXT, rompath TEXT, mediapath TEXT, metadata TEXT)")
+                                  "(uuid TEXT, gamename TEXT, systemid TEXT, rompath TEXT, metadata TEXT)")
         games_db.commit()
         return True
     except sqlite3.Error, e:
@@ -37,7 +37,7 @@ def insert_game(game):
     try:
         #Because we don't know how much metadata there will be, we use ''.join() for efficiency
         games_db.cursor().execute(''.join([
-            'INSERT INTO games VALUES("{uuid}","{gamename}","{systemid}","{rompath}","{mediapath}","'
+            'INSERT INTO games VALUES("{uuid}","{gamename}","{systemid}","{rompath}","'
             .format(**game.__dict__).replace("'", "''"),
             json.dumps(game.metadata).replace('"', '""'), '")'
         ]))
@@ -70,8 +70,8 @@ def search_game_by_name(name, system):
                     .format(system, name.replace('"', '""', "'", "''")))
 
         for result in cur.fetchall():
-            uuid, gamename, systemid, rompath, mediapath, metadata = result
-            games.append(Game(uuid, gamename, systemid, rompath, mediapath, **json.loads(metadata)))
+            uuid, gamename, systemid, rompath, metadata = result
+            games.append(Game(uuid, gamename, systemid, rompath, **json.loads(metadata)))
 
     except sqlite3.Error, e:
         generalutils.server_log("SQL Error Encountered, Could not search for games")
@@ -107,5 +107,5 @@ def get_games_from_system(system):
 
     return games
 
-def delete_system(system):
+def delete_game_by_uuid(uuid):
     pass
