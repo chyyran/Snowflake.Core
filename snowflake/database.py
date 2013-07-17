@@ -57,24 +57,31 @@ def delete_game_by_game(gameobj):
     pass
 
 
-def get_game_by_name(name, system):
-    pass
-
-
-def search_game_by_name(name, system):
+def search_game(name="",systemid="", metadata=""):
     games = []
-    #todo Test this
-    try:
-        cur = games_db.cursor()
-        cur.execute('SELECT * FROM games WHERE systemid="{0}" AND gamename LIKE "%{1}%"'
-                    .format(system, name.replace('"', '""', "'", "''")))
+    searchstrings = []
+    if name is not "":
+        searchstrings.append(''.join(['gamename LIKE "%', name, '%"']))
+    if systemid is not "":
+        searchstrings.append(''.join(['systemid = ', '"', systemid, '"']))
+    if metadata is not "":
+        for metadatakey, metadatavalue in metadata.iteritems():
+            searchstrings.append(''.join(['metadata LIKE "%""', metadatakey, '"": ""', metadatavalue, '""%"']))
 
-        for result in cur.fetchall():
-            uuid, gamename, systemid, rompath, metadata = result
-            games.append(Game(uuid, gamename, systemid, rompath, **json.loads(metadata)))
-
-    except sqlite3.Error, e:
-        generalutils.server_log("SQL Error Encountered, Could not search for games")
+    if not searchstrings:
+        generalutils.server_log("Empty Searchstring while searching for strings")
+        pass
+    else:
+        try:
+            cur = games_db.cursor()
+            cur.execute('SELECT * FROM games WHERE ' + ' AND '.join(searchstrings))
+            for result in cur.fetchall():
+                uuid, gamename, systemid, rompath, metadata = result
+                games.append(Game(uuid, gamename, systemid, rompath, **json.loads(metadata)))
+        except sqlite3.Error, e:
+            generalutils.server_log("Error encountered while searching for game with name", name, "systemid", systemid,
+                                    "metadata", str(metadata), ", ", e.args[0])
+            pass
 
     return games
 
@@ -84,23 +91,23 @@ def get_game_by_uid(id):
     try:
         cur = games_db.cursor()
         cur.execute('SELECT * FROM games WHERE uuid="{0}"'.format(id))
-        uuid, gamename, systemid, rompath, mediapath, metadata = cur.fetchone()
-        return Game(uuid, gamename, systemid, rompath, mediapath, **json.loads(metadata))
+        uuid, gamename, systemid, rompath, metadata = cur.fetchone()
+        return Game(uuid, gamename, systemid, rompath, **json.loads(metadata))
 
     except sqlite3.Error, e:
         generalutils.server_log("SQL Error Encountered, Could not search for games")
         return None
 
 
-def get_games_from_system(system):
+def get_games_for_system(systemid):
     games = []
     try:
         cur = games_db.cursor()
-        cur.execute('SELECT * FROM games WHERE systemid="{0}"'.format(system))
+        cur.execute('SELECT * FROM games WHERE systemid="{0}"'.format(systemid))
 
         for result in cur.fetchall():
-            uuid, gamename, systemid, rompath, mediapath, metadata = result
-            games.append(Game(uuid, gamename, systemid, rompath, mediapath, **json.loads(metadata)))
+            uuid, gamename, systemid, rompath, metadata = result
+            games.append(Game(uuid, gamename, systemid, rompath, **json.loads(metadata)))
 
     except sqlite3.Error, e:
         generalutils.server_log("SQL Error Encountered, Could not search for games")
