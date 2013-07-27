@@ -49,17 +49,33 @@ def insert_game(game):
         generalutils.server_log("SQL Error Encountered, Unable to Insert Game:", e.args[0])
         return False
 
-def delete_game_by_id(gameid):
-    pass
+
+def delete_game(gameid):
+    #todo Test this
+    try:
+        cur = games_db.cursor()
+        cur.execute('DELETE * FROM games WHERE uuid="{0}"'.format(gameid))
+        games_db.commit()
+
+    except sqlite3.Error, e:
+        generalutils.server_log("SQL Error Encountered, could not delete game {0}".format(gameid))
+        return None
 
 
-def delete_game_by_game(gameobj):
-    pass
+def search_game(name="", systemid="", metadata=""):
+    """
+    Searches for a game given parameters
+    :param name: Title of the game to search
+    :param systemid: System ID of the game to search
+    :param metadata: Any metadata to search
+    :return:
+    """
 
-
-def search_game(name="",systemid="", metadata=""):
+    #fields
     games = []
     searchstrings = []
+
+    #Build the SQLite statement
     if name is not "":
         searchstrings.append(''.join(['gamename LIKE "%', name, '%"']))
     if systemid is not "":
@@ -68,21 +84,29 @@ def search_game(name="",systemid="", metadata=""):
         for metadatakey, metadatavalue in metadata.iteritems():
             searchstrings.append(''.join(['metadata LIKE "%""', metadatakey, '"": ""', metadatavalue, '""%"']))
 
+    #If no arguments were provided, log
     if not searchstrings:
         generalutils.server_log("Empty Searchstring while searching for strings")
         pass
+
     else:
+
         try:
             cur = games_db.cursor()
+            #Execute the SQLite
             cur.execute('SELECT * FROM games WHERE ' + ' AND '.join(searchstrings))
+
+            #Add all results to array
             for result in cur.fetchall():
                 uuid, gamename, systemid, rompath, metadata = result
                 games.append(Game(uuid, gamename, systemid, rompath, **json.loads(metadata)))
+        #Log any errors
         except sqlite3.Error, e:
             generalutils.server_log("Error encountered while searching for game with name", name, "systemid", systemid,
                                     "metadata", str(metadata), ", ", e.args[0])
             pass
 
+    #Return nothing, bor array of games
     return games
 
 
@@ -114,5 +138,3 @@ def get_games_for_system(systemid):
 
     return games
 
-def delete_game_by_uuid(uuid):
-    pass
