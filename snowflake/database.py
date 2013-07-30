@@ -62,7 +62,7 @@ def delete_game(gameid):
         return None
 
 
-def search_game(name="", systemid="", metadata=""):
+def search_game(name="", systemid="", metadata={}):
     """
     Searches for a game given parameters
     :param name: Title of the game to search
@@ -80,7 +80,7 @@ def search_game(name="", systemid="", metadata=""):
         searchstrings.append(''.join(['gamename LIKE "%', name, '%"']))
     if systemid is not "":
         searchstrings.append(''.join(['systemid = ', '"', systemid, '"']))
-    if metadata is not "":
+    if metadata is not {}:
         for metadatakey, metadatavalue in metadata.iteritems():
             searchstrings.append(''.join(['metadata LIKE "%""', metadatakey, '"": ""', metadatavalue, '""%"']))
 

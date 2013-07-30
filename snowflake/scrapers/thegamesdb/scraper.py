@@ -6,6 +6,8 @@ This file is part of Snowflake.Core
 
 import urllib
 import re
+import os
+import yaml
 from snowflake import systemcolumns
 from snowflake.utils import scraperutils
 
@@ -15,7 +17,8 @@ __scraperauthor__ = ["Angelscry", "ron975"]
 __scrapersite__ = "thegamesdb.net"
 __scraperdesc__ = "Scrapes ROM information from TheGamesDB API"
 __scraperfanarts__ = True
-
+__scraperpath__ = os.path.dirname(os.path.realpath(__file__))
+__scrapermap__ = yaml.load(open(os.path.join(__scraperpath__, "scrapermap.yml")))
 
 def get_games_by_name(search):
     params = urllib.urlencode({"name": search})
@@ -43,13 +46,13 @@ def get_games_by_name(search):
 
 
 def get_games_with_system(search, system):
-    platform = scraperutils.system_conversion(system, systemcolumns.THE_GAMES_DB)
-    params = urllib.urlencode({"name": search, "platform": platform})
+    scraper_sysid = __scrapermap__[system]
+    params = urllib.urlencode({"name": search, "platform": scraper_sysid})
     results = []
     try:
         f = urllib.urlopen("http://thegamesdb.net/api/GetGamesList.php", params)
         page = f.read().replace("\n", "")
-        if platform == "Sega Genesis":
+        if scraper_sysid == "Sega Genesis":
             params = urllib.urlencode({"name": search, "platform": "Sega Mega Drive"})
             f2 = urllib.urlopen("http://thegamesdb.net/api/GetGamesList.php", params)
             page = page + f2.read().replace("\n", "")

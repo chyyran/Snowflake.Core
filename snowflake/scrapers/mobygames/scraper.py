@@ -6,6 +6,8 @@ This file is part of Snowflake.Core
 """
 import urllib
 import re
+import os
+import yaml
 from snowflake import systemcolumns
 from snowflake.utils import scraperutils
 
@@ -14,6 +16,8 @@ __scraperauthor__ = ["Angelscry", "ron975"]
 __scrapersite__ = "mobygames.com"
 __scraperdesc__ = "Scrapes ROM information from MobyGames"
 __scraperfanarts__ = True
+__scraperpath__ = os.path.dirname(os.path.realpath(__file__))
+__scrapermap__ = yaml.load(open(os.path.join(__scraperpath__, "scrapermap.yml")))
 
 
 def get_games_by_name(search):
@@ -46,11 +50,11 @@ def get_games_by_name(search):
 
 
 def get_games_with_system(search, system):
-    platform = scraperutils.system_conversion(system, systemcolumns.MOBY_GAMES, systemcolumns.SYSTEM_NAME)
+    scraper_sysid = __scrapermap__[system]
     results = []
     try:
-        f = urllib.urlopen('http://www.mobygames.com/search/quick?q=' + search.replace(' ',
-                                                                                       '+') + '&p=' + platform + '&sFilter=1&sG=on')
+        f = urllib.urlopen('http://www.mobygames.com/search/quick?q=' + search.replace(' ', '+')
+                           + '&p=' + scraper_sysid + '&sFilter=1&sG=on')
         for line in f.readlines():
             if 'searchNumber' in line:
                 split_games = re.findall('Game: (.*?)</span></div>', line)

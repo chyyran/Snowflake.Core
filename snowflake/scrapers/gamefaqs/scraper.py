@@ -6,6 +6,8 @@ This file is part of Snowflake.Core
 
 import urllib
 import re
+import os
+import yaml
 from snowflake import systemcolumns
 from snowflake.utils import scraperutils
 
@@ -14,6 +16,8 @@ __scraperauthor__ = ["Angelscry", "ron975"]
 __scrapersite__ = "www.gamefaqs.com"
 __scraperdesc__ = "Scrapes ROM information from GameFAQs"
 __scraperfanarts__ = True
+__scraperpath__ = os.path.dirname(os.path.realpath(__file__))
+__scrapermap__ = yaml.load(open(os.path.join(__scraperpath__, "scrapermap.yml")))
 
 
 def get_games_by_name(search):
@@ -35,11 +39,11 @@ def get_games_by_name(search):
 
 
 def get_games_with_system(search, system):
-    platform = scraperutils.system_conversion(system, systemcolumns.GAME_FAQS)
+    scraper_sysid = __scrapermap__[system]
     results = []
     try:
         f = urllib.urlopen('http://www.gamefaqs.com/search/index.html?platform={0}&game={1}'
-        .format(platform, search.replace(' ', '+')))
+        .format(scraper_sysid, search.replace(' ', '+')))
         gets = re.findall(r'\s+?<a href="(.*?)"\s+?>(.*?)</a></td>', f.read().replace('\r\n', ''))
         for get in gets:
             game = {}
