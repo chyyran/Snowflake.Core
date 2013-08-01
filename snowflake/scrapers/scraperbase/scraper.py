@@ -12,7 +12,7 @@ __scrapersite__ = "N/A"
 __scraperdesc__ = "The interface in which all scrapers should be based upon."
 __scraperfanarts__ = True
 __scraperpath__ = os.path.dirname(os.path.realpath(__file__))
-__scrapermap__ = yaml.load(open(os.path.join(__scraperpath__, "scraperbase.yml")))
+__scrapermap__ = yaml.load(open(os.path.join(__scraperpath__, "scrapermap.yml")))
 
 def get_games_by_name(search):
     """Gets a list of games from search parameter"""

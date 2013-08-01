@@ -8,7 +8,6 @@ import urllib
 import re
 import os
 import yaml
-from snowflake import systemcolumns
 from snowflake.utils import scraperutils
 
 __scrapername__ = "GameFAQs"
@@ -23,6 +22,7 @@ __scrapermap__ = yaml.load(open(os.path.join(__scraperpath__, "scrapermap.yml"))
 def get_games_by_name(search):
     results = []
     try:
+
         f = urllib.urlopen('http://www.gamefaqs.com/search/index.html?platform=0&game=' + search.replace(' ', '+'))
         gets = {}
         gets = re.findall(r'\s+?<a href="(.*?)"\s+?>(.*?)</a></td>', f.read().replace('\r\n', ''))
@@ -43,7 +43,7 @@ def get_games_with_system(search, system):
     results = []
     try:
         f = urllib.urlopen('http://www.gamefaqs.com/search/index.html?platform={0}&game={1}'
-        .format(scraper_sysid, search.replace(' ', '+')))
+            .format(scraper_sysid, search.replace(' ', '+')))
         gets = re.findall(r'\s+?<a href="(.*?)"\s+?>(.*?)</a></td>', f.read().replace('\r\n', ''))
         for get in gets:
             game = {}

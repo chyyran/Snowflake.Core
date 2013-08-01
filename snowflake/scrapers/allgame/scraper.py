@@ -13,7 +13,7 @@ __scrapersite__ = "www.allgame.com"
 __scraperdesc__ = "Scrapes ROM information from AllGame"
 __scraperfanarts__ = False
 __scraperpath__ = os.path.dirname(os.path.realpath(__file__))
-__scrapermap__ = yaml.load(open(os.path.join(__scraperpath__,"scrapermap.yml")))
+__scrapermap__ = yaml.load(open(os.path.join(__scraperpath__, "scrapermap.yml")))
 
 
 def get_games_by_name(search):
@@ -52,6 +52,7 @@ def get_games_with_system(game_name, system):
             if '"platform.php?id=' in line:
                 game["system"] = ''.join(re.findall('<a[^>]*>(.*?)</a>', line))
                 if game["system"].lower() == scraper_sysid.lower():
+                    game["system"] = system
                     results.append(game)
         return results
     except:

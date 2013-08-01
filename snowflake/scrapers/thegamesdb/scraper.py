@@ -62,14 +62,14 @@ def get_games_with_system(search, system):
             game = {}
             game["id"] = item[0]
             game["title"] = item[1]
-            game["system"] = system
+            game["system"] = item[3]
             game["order"] = 1
             if game["title"].lower() == search.lower():
                 game["order"] += 1
             if game["title"].lower().find(search.lower()) != -1:
                 game["order"] += 1
-            if scraperutils.system_conversion(item[3], systemcolumns.SYSTEM_NAME,
-                                        systemcolumns.THE_GAMES_DB).lower() == system.lower():
+            if game["system"] == scraper_sysid:
+                game["system"] = system #Use Snowflake SystemID after checking for system.
                 results.append(game)
         results.sort(key=lambda result: result["order"], reverse=True)
         return results

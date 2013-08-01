@@ -1,12 +1,9 @@
 #coding=utf-8
 import difflib
 import imp
-import json
 import os
-import sqlite3
-from snowflake import systemcolumns
-from snowflake.scrapers import scraperbase
-from snowflake.utils import generalutils
+from snowflake.scrapers.scraperbase import scraper
+
 __author__ = 'ron975'
 """
 This file is part of Snowflake.Core
@@ -14,7 +11,7 @@ This file is part of Snowflake.Core
 
 
 def get_scrapers_directory():
-    return os.path.dirname(os.path.realpath(scraperbase.__file__))
+    return os.path.dirname(os.path.realpath(scraper.__file__))
 
 
 def get_scraper(scrapername):
@@ -22,30 +19,9 @@ def get_scraper(scrapername):
                               os.path.join(get_scrapers_directory(), scrapername.lower(), "scraper.py"))
 
     if scraper.__scrapername__.lower() != scrapername.lower():
-        return scraperbase
+        return scraper
     else:
         return scraper
-
-
-def system_conversion(system_id, scraper_site, search_column=systemcolumns.SYSTEM_NAME):
-    """
-    Replaces _system_conversion in Angelscry's unmodified scrapers.
-    Uses a SQLite3 database rather than the default CSV for speed and constancy
-    :param system_id: Search string, for example "Nintendo Entertainment System". For reference, check systems.json
-    :param scraper_site: Scraper column, recommended to use a GameSysColumn constant, eg systemcolumns.GAME_FAQS
-    :param search_column: Column to search for. Currently, only GameSysColumn.SYSTEM_NAME, works.
-    :rtype : str
-    """
-    dbpath = os.path.join(generalutils.get_core_directory(), "assets", "systems.dbx")
-    con = sqlite3.connect(dbpath)
-    cur = con.cursor()
-    cur.execute("SELECT {0} FROM systems WHERE {1} = '{2}'".format(scraper_site, search_column, system_id))
-    data = cur.fetchone()
-    try:
-        return data[0]
-    except TypeError:
-        return ''
-
 
 def get_best_from_results(game_searches, game_name):
     best_match = {}
