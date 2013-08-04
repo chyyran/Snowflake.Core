@@ -1,4 +1,6 @@
 #coding=utf-8
+from snowflake import scrapers
+
 __author__ = 'ron975'
 """
 This file is part of Snowflake.Core
@@ -8,7 +10,6 @@ import urllib
 import re
 import os
 import yaml
-from snowflake.utils import scraperutils
 
 __scrapername__ = "GameFAQs"
 __scraperauthor__ = ["Angelscry", "ron975"]
@@ -29,7 +30,7 @@ def get_games_by_name(search):
             game = {}
             system = get[0].split('/')
             game["id"] = get[0].split('/')[2].split('-')[0]
-            game["title"] = scraperutils.format_html_codes(get[1])
+            game["title"] = scrapers.format_html_codes(get[1])
             game["system"] = system[1].upper()
             results.append(game)
         return results
@@ -47,7 +48,7 @@ def get_games_with_system(search, system):
         for get in gets:
             game = {}
             game["id"] = get[0].split('/')[2].split('-')[0]
-            game["title"] = scraperutils.format_html_codes(get[1])
+            game["title"] = scrapers.format_html_codes(get[1])
             game["system"] = system
             results.append(game)
         return results
@@ -79,7 +80,7 @@ def get_game_datas(game_id, title):
             gamedata["studio"] = p.sub('', game_studio[0][1])
         game_plot = re.findall(r'Description</h2></div><div class="body"><div class="details">(.*?)</div></div>', page)
         if game_plot:
-            gamedata["plot"] = scraperutils.format_html_codes(game_plot[0])
+            gamedata["plot"] = scrapers.format_html_codes(game_plot[0])
         return gamedata
     except:
         return gamedata

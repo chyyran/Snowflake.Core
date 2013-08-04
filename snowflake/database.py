@@ -6,10 +6,11 @@ This file is part of Snowflake.Core
 import sqlite3
 import os
 import json
-from snowflake.utils import generalutils
+
+from snowflake import utils
 from snowflake.types import Game
 #Games Database
-games_db = sqlite3.connect(os.path.join(generalutils.get_core_directory(), "assets", "games.db"))
+games_db = sqlite3.connect(os.path.join(utils.directory_config, "games.db"))
 
 
 def create_games_database():
@@ -23,7 +24,7 @@ def create_games_database():
         games_db.commit()
         return True
     except sqlite3.Error, e:
-        generalutils.server_log("SQL Error Encountered, Unable to Create Database:", e.args[0])
+        utils.server_log("SQL Error Encountered, Unable to Create Database:", e.args[0])
         return False
 
 
@@ -43,10 +44,10 @@ def insert_game(game):
         ]))
 
         games_db.commit()
-        generalutils.server_log("Inserted Game '{gamename}' ({rompath}) with uuid {uuid}".format(**game.__dict__))
+        utils.server_log("Inserted Game '{gamename}' ({rompath}) with uuid {uuid}".format(**game.__dict__))
         return True
     except sqlite3.Error, e:
-        generalutils.server_log("SQL Error Encountered, Unable to Insert Game:", e.args[0])
+        utils.server_log("SQL Error Encountered, Unable to Insert Game:", e.args[0])
         return False
 
 
@@ -58,7 +59,7 @@ def delete_game(gameid):
         games_db.commit()
 
     except sqlite3.Error, e:
-        generalutils.server_log("SQL Error Encountered, could not delete game {0}".format(gameid))
+        utils.server_log("SQL Error Encountered, could not delete game {0}".format(gameid))
         return None
 
 
@@ -86,7 +87,7 @@ def search_game(name="", systemid="", metadata={}):
 
     #If no arguments were provided, log
     if not searchstrings:
-        generalutils.server_log("Empty Searchstring while searching for strings")
+        utils.server_log("Empty Searchstring while searching for strings")
         pass
 
     else:
@@ -102,7 +103,7 @@ def search_game(name="", systemid="", metadata={}):
                 games.append(Game(uuid, gamename, systemid, rompath, **json.loads(metadata)))
         #Log any errors
         except sqlite3.Error, e:
-            generalutils.server_log("Error encountered while searching for game with name", name, "systemid", systemid,
+            utils.server_log("Error encountered while searching for game with name", name, "systemid", systemid,
                                     "metadata", str(metadata), ", ", e.args[0])
             pass
 
@@ -119,7 +120,7 @@ def get_game_by_uid(id):
         return Game(uuid, gamename, systemid, rompath, **json.loads(metadata))
 
     except sqlite3.Error, e:
-        generalutils.server_log("SQL Error Encountered, Could not search for games")
+        utils.server_log("SQL Error Encountered, Could not search for games")
         return None
 
 
@@ -134,7 +135,7 @@ def get_games_for_system(systemid):
             games.append(Game(uuid, gamename, systemid, rompath, **json.loads(metadata)))
 
     except sqlite3.Error, e:
-        generalutils.server_log("SQL Error Encountered, Could not search for games")
+        utils.server_log("SQL Error Encountered, Could not search for games")
 
     return games
 

@@ -9,14 +9,12 @@ __author__ = 'ron975'
 This file is part of Snowflake.Core
 """
 
-
-def get_scrapers_directory():
-    return os.path.dirname(os.path.realpath(scraper.__file__))
+directory_scrapers = os.path.dirname(os.path.realpath(scraper.__file__))
 
 
 def get_scraper(scrapername):
     scraper = imp.load_source('snowflake.{0}'.format(scrapername),
-                              os.path.join(get_scrapers_directory(), scrapername.lower(), "scraper.py"))
+                              os.path.join(directory_scrapers, scrapername.lower(), "scraper.py"))
 
     if scraper.__scrapername__.lower() != scrapername.lower():
         return scraper

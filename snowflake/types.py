@@ -21,7 +21,6 @@ class System():
         return
 
 
-
 class Game():
     def __init__(self, uuid, gamename, systemid, rompath, **metadata):
         if uuid is "":

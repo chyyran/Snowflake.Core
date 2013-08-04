@@ -1,0 +1,24 @@
+-   displayname: 'Super Nintendo Entertainment System'
+    snowflakeid: 'SUPER_NINTENDO_ENTERTAINMENT_SYSTEM'
+    rompath: 'D:\Roms\SNES\'
+    cmdline: 'D:\Emulators\Snes9x.exe "%rom%"'
+    scrapers:
+        - 'allgame'
+        - 'thegamesdb'
+    filenames:
+        - 'sfc'
+        - 'smc'
+    metadata:
+        creator: 'Nintendo'
+
+-   displayname: 'Sega Genesis'
+    snowflakeid: 'SEGA_GENESIS'
+    rompath: 'D:\Roms\Genesis\'
+    cmdline: 'D:\Emulators\Fusion.exe "%rom%"'
+    scrapers:
+        - 'allgame'
+        - 'thegamesdb'
+    filenames:
+        - 'bin'
+    metadata:
+        creator: 'Sega'

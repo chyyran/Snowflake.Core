@@ -8,8 +8,7 @@ import urllib
 import re
 import os
 import yaml
-from snowflake import systemcolumns
-from snowflake.utils import scraperutils
+from snowflake import scrapers
 
 __scrapername__ = "MobyGames"
 __scraperauthor__ = ["Angelscry", "ron975"]
@@ -33,13 +32,13 @@ def get_games_by_name(search):
             if split_versions:
                 for version in split_versions:
                     game = {}
-                    game["title"] = scraperutils.format_html_codes(game_title[0][1])
+                    game["title"] = scrapers.format_html_codes(game_title[0][1])
                     game["id"] = 'http://www.mobygames.com' + version[0]
                     game["system"] = version[1]
                     results.append(game)
             else:
                 game = {}
-                game["title"] = scraperutils.format_html_codes(game_title[0][1].replace('&#x26;', '&').replace('&#x27;', "'"))
+                game["title"] = scrapers.format_html_codes(game_title[0][1].replace('&#x26;', '&').replace('&#x27;', "'"))
                 one_version = re.findall('nowrap">(.*?) \(', games)
                 game["id"] = 'http://www.mobygames.com' + game_title[0][0]
                 game["system"] = one_version[0]
@@ -64,13 +63,13 @@ def get_games_with_system(search, system):
             if split_versions:
                 for version in split_versions:
                     game = {}
-                    game["title"] = scraperutils.format_html_codes(game_title[0][1])
+                    game["title"] = scrapers.format_html_codes(game_title[0][1])
                     game["id"] = 'http://www.mobygames.com' + version[0]
                     game["system"] = system
                     results.append(game)
             else:
                 game = {}
-                game["title"] = scraperutils.format_html_codes(game_title[0][1])
+                game["title"] = scrapers.format_html_codes(game_title[0][1])
                 game["id"] = game_title[0][0]
                 game["system"] = system
                 results.append(game)
@@ -93,18 +92,18 @@ def get_game_datas(game_id, title):
         page = f.read().replace('\r\n', '').replace('\n', '')
         game_genre = re.findall('<a href="/genre/(.*?)">(.*?)</a>', page)
         if game_genre:
-            gamedata["genre"] = scraperutils.format_html_codes(game_genre[0][1])
+            gamedata["genre"] = scrapers.format_html_codes(game_genre[0][1])
         game_release = re.findall('/release-info">(.*?)</a>', page)
         if game_release:
             gamedata["release"] = game_release[1][-4:]
         game_studio = re.findall('Developed by(.*?)<a href="(.*?)">(.*?)</a>', page)
         if game_studio:
-            gamedata["studio"] = scraperutils.format_html_codes(game_studio[0][2])
+            gamedata["studio"] = scrapers.format_html_codes(game_studio[0][2])
         game_plot = re.findall('Description</h2>(.*?)<div class', page)
         if game_plot:
             p = re.compile(r'<.*?>')
-            gamedata["plot"] = scraperutils.format_html_codes(p.sub('', game_plot[0]))
-        return scraperutils.format_html_codes(gamedata)
+            gamedata["plot"] = scrapers.format_html_codes(p.sub('', game_plot[0]))
+        return scrapers.format_html_codes(gamedata)
     except:
         return gamedata
 

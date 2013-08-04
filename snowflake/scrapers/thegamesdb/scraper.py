@@ -8,8 +8,7 @@ import urllib
 import re
 import os
 import yaml
-from snowflake import systemcolumns
-from snowflake.utils import scraperutils
+from snowflake import scrapers
 
 
 __scrapername__ = "TheGamesDB"
@@ -92,16 +91,16 @@ def get_game_datas(game_id, title):
         page = f.read().replace('\n', '')
         game_genre = ' / '.join(re.findall('<genre>(.*?)</genre>', page))
         if game_genre:
-            gamedata["genre"] = scraperutils.format_html_codes(game_genre)
+            gamedata["genre"] = scrapers.format_html_codes(game_genre)
         game_release = ''.join(re.findall('<ReleaseDate>(.*?)</ReleaseDate>', page))
         if game_release:
-            gamedata["release"] = scraperutils.format_html_codes(game_release[-4:])
+            gamedata["release"] = scrapers.format_html_codes(game_release[-4:])
         game_studio = ''.join(re.findall('<Developer>(.*?)</Developer>', page))
         if game_studio:
-            gamedata["studio"] = scraperutils.format_html_codes(game_studio)
+            gamedata["studio"] = scrapers.format_html_codes(game_studio)
         game_plot = ''.join(re.findall('<Overview>(.*?)</Overview>', page))
         if game_plot:
-            gamedata["plot"] = scraperutils.format_html_codes(game_plot)
+            gamedata["plot"] = scrapers.format_html_codes(game_plot)
 
         return gamedata
     except:

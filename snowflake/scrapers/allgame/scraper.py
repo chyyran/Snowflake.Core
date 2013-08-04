@@ -1,5 +1,5 @@
 #coding=utf-8
-import snowflake.utils.scraperutils as scraperutils
+import snowflake.scrapers as scraperutils
 
 __author__ = 'ron975'
 """
