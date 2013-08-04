@@ -23,6 +23,7 @@ def get_scraper(scrapername):
     else:
         return scraper
 
+
 def get_best_from_results(game_searches, game_name):
     best_match = {}
     best_ratio = 0
@@ -51,7 +52,6 @@ def get_best_search_result(game_list, game_name):
 def get_match_by_threshold(game_dict, game_name, match_threshold):
 
     return
-
 
 
 def format_html_codes(s):

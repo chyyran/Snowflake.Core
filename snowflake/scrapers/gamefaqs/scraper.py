@@ -22,7 +22,6 @@ __scrapermap__ = yaml.load(open(os.path.join(__scraperpath__, "scrapermap.yml"))
 def get_games_by_name(search):
     results = []
     try:
-
         f = urllib.urlopen('http://www.gamefaqs.com/search/index.html?platform=0&game=' + search.replace(' ', '+'))
         gets = {}
         gets = re.findall(r'\s+?<a href="(.*?)"\s+?>(.*?)</a></td>', f.read().replace('\r\n', ''))

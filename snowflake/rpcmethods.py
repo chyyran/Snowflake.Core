@@ -1,6 +1,7 @@
 #coding=utf-8
+from snowflake import config
 
-from snowflake.utils import generalutils, configutils
+from snowflake.utils import generalutils
 from snowflake.scrape_engines import deep_engine as engine
 
 __author__ = 'ron975'
@@ -35,7 +36,7 @@ def scrape_game(gamename, console):
         return None
     else:
         return engine.scrape_game(gamename, console,
-                                  configutils.get_console_from_config(console).scrapers)
+                                  config.get_console_from_config(console).scrapers)
 
 @rpcmethod("GetConsoles")
 def get_consoles():
@@ -46,7 +47,7 @@ def get_consoles():
     """
     generalutils.server_log("GetConsoles Requested")
     consoles = []
-    for console in configutils.get_all_consoles():
+    for console in config.get_all_consoles():
         consoles.append(console.__dict__)
     return consoles
 
