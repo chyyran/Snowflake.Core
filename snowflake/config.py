@@ -15,16 +15,16 @@ def get_config():
     return yaml.load(open(os.path.join(constants.directory_core, "data.yml")))
 
 
-def get_console_by_id(id):
+def get_system_by_id(systemid):
     for system in yaml.load(open(os.path.join(constants.directory_core, "systems.yml"))):
-        if id == system["id"]:
+        if systemid == system["id"]:
             return System(**system)
     return None
 
 
-def get_all_consoles():
-    consoles = []
+def get_all_systems():
+    systems = []
     for system in yaml.load(open(os.path.join(constants.directory_core, "systems.yml"))):
 
-        consoles.append(get_console_by_id(system["id"]))
-    return consoles
+        systems.append()
+    return systems

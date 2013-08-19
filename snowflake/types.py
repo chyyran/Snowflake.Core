@@ -8,14 +8,14 @@ import shortuuid
 
 
 class System():
-    def __init__(self, fullname, short_name, run, mediapath ,rom_paths, extensions, scrapers):
-        self.fullname = fullname
-        self.short_name = short_name
-        self.run = run
-        self.rom_paths = rom_paths
-        self.extensions = extensions
+    def __init__(self, displayname, systemid, cmdline, rompaths, filetypes, scrapers, **metadata):
+        self.displayname = displayname
+        self.systemid = systemid
+        self.cmdline = cmdline
+        self.rompaths = rompaths
+        self.filetypes = filetypes
         self.scrapers = scrapers
-        self.mediapath = mediapath
+        self.metadata = metadata
 
     def get_media(self, type):
         return
