@@ -15,16 +15,13 @@ def get_config():
     return yaml.load(open(os.path.join(constants.directory_core, "data.yml")))
 
 
-def get_system_by_id(systemid):
-    for system in yaml.load(open(os.path.join(constants.directory_core, "systems.yml"))):
-        if systemid == system["id"]:
-            return System(**system)
-    return None
+def get_systems():
 
-
-def get_all_systems():
-    systems = []
-    for system in yaml.load(open(os.path.join(constants.directory_core, "systems.yml"))):
-
-        systems.append()
+    """
+    Gets systems from systems.yml
+    :return: A dictionary of systems with the Snowflake system ID as key.
+    """
+    systems = {}
+    for system in yaml.load(open(os.path.join(constants.directory_data, "systems.yml"))):
+        systems[system["systemid"]] = System(**system)
     return systems
