@@ -7,10 +7,10 @@ import sqlite3
 import os
 import json
 
-from snowflake import utils
+from snowflake import utils, constants
 from snowflake.types import Game
 #Games Database
-games_db = sqlite3.connect(os.path.join(utils.directory_config, "games.db"))
+games_db = sqlite3.connect(os.path.join(constants.directory_data, "games.db"))
 
 
 def create_games_database():
@@ -51,15 +51,15 @@ def insert_game(game):
         return False
 
 
-def delete_game(gameid):
+def delete_game(game_id):
     #todo Test this
     try:
         cur = games_db.cursor()
-        cur.execute('DELETE * FROM games WHERE uuid="{0}"'.format(gameid))
+        cur.execute('DELETE * FROM games WHERE uuid="{0}"'.format(game_id))
         games_db.commit()
 
     except sqlite3.Error, e:
-        utils.server_log("SQL Error Encountered, could not delete game {0}".format(gameid))
+        utils.server_log("SQL Error Encountered, could not delete game {0}".format(game_id))
         return None
 
 
@@ -111,11 +111,11 @@ def search_game(name="", systemid="", metadata={}):
     return games
 
 
-def get_game_by_uid(id):
+def get_game_by_uid(game_id):
     #todo Test this
     try:
         cur = games_db.cursor()
-        cur.execute('SELECT * FROM games WHERE uuid="{0}"'.format(id))
+        cur.execute('SELECT * FROM games WHERE uuid="{0}"'.format(game_id))
         uuid, gamename, systemid, rompath, metadata = cur.fetchone()
         return Game(uuid, gamename, systemid, rompath, **json.loads(metadata))
 

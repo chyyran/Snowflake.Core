@@ -1,5 +1,5 @@
 #coding=utf-8
-from snowflake import config, utils
+from snowflake import config, utils, database
 
 __author__ = 'ron975'
 """
@@ -44,7 +44,21 @@ def get_systems():
     """
     utils.server_log("GetSystems Requested")
     consoles = []
-    for console in config.get_all_systems():
+    for console in config.get_systems():
         consoles.append(console.__dict__)
     return consoles
 
+@rpcmethod("GetGameByID")
+def get_game_by_id(game_id):
+    utils.server_log("GetGameByID Requested. Params={0}".format(game_id))
+    #todo test this
+    return database.get_game_by_uid(game_id)
+
+@rpcmethod("SearchGame")
+def search_game(name="", systemid="", metadata={}):
+    #todo test this
+    return database.search_game(name, systemid, metadata)
+
+@rpcmethod("GetGamesForSystem")
+def get_games_for_system(systemid):
+    return database.get_games_for_system(systemid)
