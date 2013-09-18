@@ -20,7 +20,7 @@ def create_games_database():
     """
     try:
         games_db.cursor().execute("CREATE TABLE games "
-                                  "(uuid TEXT, gamename TEXT, systemid TEXT, rompath TEXT, metadata TEXT)")
+                                  "(uuid TEXT, gamename TEXT, consoleid TEXT, rompath TEXT, metadata TEXT)")
         games_db.commit()
         return True
     except sqlite3.Error, e:
@@ -38,7 +38,7 @@ def insert_game(game):
     try:
         #Because we don't know how much metadata there will be, we use ''.join() for efficiency
         games_db.cursor().execute(''.join([
-            'INSERT INTO games VALUES("{uuid}","{gamename}","{systemid}","{rompath}","'
+            'INSERT INTO games VALUES("{uuid}","{gamename}","{consoleid}","{rompath}","'
             .format(**game.__dict__).replace("'", "''"),
             json.dumps(game.metadata).replace('"', '""'), '")'
         ]))
@@ -63,11 +63,11 @@ def delete_game(game_id):
         return None
 
 
-def search_game(name="", systemid="", metadata={}):
+def search_game(name="", consoleid="", metadata={}):
     """
     Searches for a game given parameters
     :param name: Title of the game to search
-    :param systemid: System ID of the game to search
+    :param consoleid: Console ID of the game to search
     :param metadata: Any metadata to search
     :return:
     """
@@ -79,8 +79,8 @@ def search_game(name="", systemid="", metadata={}):
     #Build the SQLite statement
     if name is not "":
         searchstrings.append(''.join(['gamename LIKE "%', name, '%"']))
-    if systemid is not "":
-        searchstrings.append(''.join(['systemid = ', '"', systemid, '"']))
+    if consoleid is not "":
+        searchstrings.append(''.join(['consoleid = ', '"', consoleid, '"']))
     if metadata is not {}:
         for metadatakey, metadatavalue in metadata.iteritems():
             searchstrings.append(''.join(['metadata LIKE "%""', metadatakey, '"": ""', metadatavalue, '""%"']))
@@ -99,11 +99,11 @@ def search_game(name="", systemid="", metadata={}):
 
             #Add all results to array
             for result in cur.fetchall():
-                uuid, gamename, systemid, rompath, metadata = result
-                games.append(Game(uuid, gamename, systemid, rompath, **json.loads(metadata)))
+                uuid, gamename, consoleid, rompath, metadata = result
+                games.append(Game(uuid, gamename, consoleid, rompath, **json.loads(metadata)))
         #Log any errors
         except sqlite3.Error, e:
-            utils.server_log("Error encountered while searching for game with name", name, "systemid", systemid,
+            utils.server_log("Error encountered while searching for game with name", name, "consoleid", consoleid,
                                     "metadata", str(metadata), ", ", e.args[0])
             pass
 
@@ -128,7 +128,7 @@ def get_games_for_system(systemid):
     games = []
     try:
         cur = games_db.cursor()
-        cur.execute('SELECT * FROM games WHERE systemid="{0}"'.format(systemid))
+        cur.execute('SELECT * FROM games WHERE consoleid="{0}"'.format(systemid))
 
         for result in cur.fetchall():
             uuid, gamename, systemid, rompath, metadata = result

@@ -7,10 +7,10 @@ This file is part of Snowflake.Core
 import shortuuid
 
 
-class System():
-    def __init__(self, displayname, systemid, cmdline, rompaths, filetypes, scrapers, **metadata):
+class Console():
+    def __init__(self, displayname, consoleid, cmdline, rompaths, filetypes, scrapers, **metadata):
         self.displayname = displayname
-        self.systemid = systemid
+        self.consoleid = consoleid
         self.cmdline = cmdline
         self.rompaths = rompaths
         self.filetypes = filetypes
