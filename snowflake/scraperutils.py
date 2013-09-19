@@ -1,7 +1,7 @@
 #coding=utf-8
 import difflib
 import imp
-import os
+import os.path
 from snowflake.scrapers.scraperbase import scraper
 
 __author__ = 'ron975'
@@ -9,7 +9,7 @@ __author__ = 'ron975'
 This file is part of Snowflake.Core
 """
 
-directory_scrapers = os.path.dirname(os.path.realpath(scraper.__file__))
+directory_scrapers = os.path.dirname(os.path.dirname(os.path.realpath(scraper.__file__)))
 
 
 def get_scraper(scrapername):
@@ -21,6 +21,10 @@ def get_scraper(scrapername):
     else:
         return scraper
 
+
+
+def order_by_best_match(game_searches, game_name):
+    return sorted(game_searches, key=lambda result: difflib.SequenceMatcher(None, result["title"], game_name).ratio(), reverse=True)
 
 def get_best_from_results(game_searches, game_name):
     best_match = {}

@@ -35,14 +35,14 @@ def rpcmethod(rpcname):
 #        return engine.scrape_game(gamename, console,
 #                                  data.get_console_from_config(console).scrapers)
 
-@rpcmethod("GetSystems")
+@rpcmethod("GetConsoles")
 def get_consoles():
     """
     RPCMethod gets consoles from configuration
 
     :return:
     """
-    utils.server_log("GetSystems Requested")
+    utils.server_log("GetConsoles Requested")
     return config.get_consoles()
 
 @rpcmethod("GetGameByID")
