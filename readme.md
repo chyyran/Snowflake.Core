@@ -1,3 +1,5 @@
+Deprecated in favor of https://github.com/ron975/snowflake
+=============
 Snowflake.Core
 ==============
 
